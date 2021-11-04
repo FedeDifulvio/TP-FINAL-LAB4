@@ -7,45 +7,98 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Home</title>
 </head>
+
+<link rel="stylesheet" href="../Styles/Styles.css" />
+<link rel="stylesheet" href="../Styles/mini-lib.css" />
+
 <body>
-  <nav class="navbar navbar-expand-lg  navbar-dark" style="background-color: #2C3E50"> 
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">TP LAB 4</a>
+
+<main class="main-container">
+
+  <nav class="navbar navbar-expand-lg navbar-dark full-width flex-center-container"> 
+  
+  <div class="container-fluid max-width-container">
+  
+    <a class="navbar-brand flex-center-container" href="#">
+    	<img src="../Assets/logo.png" />
+    </a>
+    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Profesores</a>
         </li>
+        
         <li class="nav-item">
           <a class="nav-link" href="#">Alumnos</a>
         </li>
+        
         <li class="nav-item">
           <a class="nav-link">Cursos</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link"> Mis Cursos</a>
-        </li>
+        
          <li class="nav-item">
           <a class="nav-link">Usuarios</a>
         </li>
+        
       </ul>
-      <form class="d-flex" style="align-items: center; padding: 10px; width:25%; justify-content: space-around">
-        <div style ="color:white">Alejandro Gazzo</div>
-        <button class="btn btn-danger" type="submit">Cerrar Sesión</button>
+      
+      <form class="flex-evenly-container align-items-center">
+        <h5 class="user-name">Alejandro Gazzo</h5>
+        <button class="btn accent" type="submit">Cerrar Sesión</button>
       </form>
+      
     </div>
   </div>
+  
 </nav>
+<!-- Fin navbar -->
+
+
+<div class="full-width flex-center-container">
+	
+	<div class="max-width-container">
+		
+		<div class="home-banner flex-center-container flex-column flex-center-container">
+			<img src="../Assets/comune.png">
+			<h1 class="mt-3">¡Bienvenido al sistema!</h1>
+		</div>
+		
+		<div class="dashboard-card-container full-width responsive-container flex-center-container">
+		
+			<div class="dashboard-card">
+				<a class="dashboard-card-banner" href="#">Profesores</a>	
+			</div>
+			
+			<div class="dashboard-card">
+				<a class="dashboard-card-banner" href="#">Alumnos</a>	
+			</div>
+			
+			<div class="dashboard-card">
+				<a class="dashboard-card-banner" href="#">Cursos</a>	
+			</div>
+			
+			<div class="dashboard-card">
+				<a class="dashboard-card-banner" href="#">Usuarios</a>	
+			</div>
+		
+		</div>
+	
+	</div>
+
+</div>
 
 
 
 
-  <h1>HOME</h1> 
-  <h2>AAAAAAAAAAAAA</h2>
-  <p> Ale se la come </p>
+
+</main>
+
 </body>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </html>
