@@ -34,6 +34,13 @@ body{
 	background-color: #404969;
 }
 
+input[type="submit"]{
+	color: #F2EAE8 !important; 
+	background-color: #5165FA !important;
+	padding: .5rem 1rem;
+	outline: none;
+	box-shadow: unset;
+}
 
 /*---------------------- Login ----------------------*/
 
@@ -51,14 +58,157 @@ body{
 
 .login-form{
 	gap: 10px;
+	height: 100vh;
+	justify-content: center;
 }
 
-input[type="text"],
-input[type="password"] {
-	
+.login-form .login-img{
+	max-width: 240px;
+	margin-bottom: 1rem;
 }
 
+.login-form input:not([type="submit"]){
+	outline: none;
+	background-color: #F2EAE8 !important; 
+	border: none;
+	padding: .2rem 1rem;
+	padding-left: 0;
+}
 
+/*---------------------- Table ----------------------*/
+
+.table-container{
+	padding: 3rem;
+}
+
+.table-title{
+	font-weight: 400;
+	font-size: 3rem;
+	margin-block: 2rem;
+	text-align: center;
+}
+
+.even{
+	background-color: transparent;
+}
+
+.odd{
+	background-color: #404969 !important;
+}
+
+.dataTables_info,
+.dataTables_length,
+#example_filter label,
+#example_paginate a{
+	color: #F2EAE8 !important;
+}
+
+span .paginate_button{
+	color: black !important;
+}
+
+/*---------------------- Formulario ----------------------*/
+
+
+.form__container {
+  flex-direction: column;
+  padding: 2rem;
+}
+.form__container .form__container__heading {
+  text-align: center;
+}
+.form__container .form__container__heading h2 {
+  font-weight: 500;
+  color: #B62F31;
+  margin-bottom: 1rem;
+}
+.form__container .form__container__heading h6 {
+  font-weight: 400;
+  color: #38383C;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #38383C;
+}
+.form__container .form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-inline: 2rem;
+  padding-block: 1rem;
+}
+.form__container .form .form__input-container {
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.form__container .form input, .form__container .form select {
+  height: 1.9rem;
+  border: 1.5px solid rgba(56, 56, 60, 0.3);
+  background-color: #fff;
+}
+.form__container .form label {
+  margin-bottom: 0.35rem;
+}
+.form__container .form .form__captcha {
+  height: auto;
+  border-top: 1px solid #B62F31;
+  border-bottom: 1px solid #B62F31;
+  padding-block: 1rem;
+}
+.form__container .form .form__btn-submit {
+  width: 6rem;
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+  margin: auto;
+  margin-top: 1rem;
+  background-color: #B62F31;
+  color: #FFF9F9;
+  border: none;
+  outline: none;
+}
+
+@media screen and (min-width: 768px) {
+  .form__container .form__container__heading h2 {
+    font-size: 1.8rem;
+  }
+  .form__container .form__container__heading h6 {
+    font-size: 1.2rem;
+  }
+  .form__container .form {
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .form__container .form .form__input-container {
+    flex-grow: 1;
+    width: 45%;
+  }
+
+  .form__container .form .form__captcha {
+    height: auto;
+    border-top: 1px solid #B62F31;
+    border-bottom: 1px solid #B62F31;
+    padding-block: 1rem;
+  }
+  .form__container .form .form__btn-sumbit {
+    width: 8rem;
+    padding-inline: 2rem;
+    padding-block: 1.2rem;
+    margin: auto;
+    margin-top: 1rem;
+    background-color: #B62F31;
+    color: #FFF9F9;
+    border: none;
+    outline: none;
+    align-self: bottom;
+  }
+}
+
+input:disabled,
+select:disabled{
+	cursor: not-allowed;
+	background-color: #c8d4e0;
+}
 /*---------------------- Home ----------------------*/
 
 .navbar{

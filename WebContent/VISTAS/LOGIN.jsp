@@ -14,13 +14,14 @@
 
 <body>
 
-<div class="login-screen main-container full-height">
 
 	<div class="full-width-height flex-center-container">
 		
 		<div class="login-form-container max-width-container full-height flex-center-container flex-column align-center-container">
 		
 			<form class="login-form flex-column">
+				
+				<img class="login-img" src="../Assets/login-comune.png" />
 				
 				<label>Usuario</label>
 				<input type="text" required>
@@ -37,7 +38,6 @@
 	</div>
 
 
-</div>
 
 </body>
 </html>
