@@ -128,7 +128,7 @@
       </select>
     </div>
     
-        <div class="form__input-container"></div>
+       <div class="form__input-container" style=" width: 100%"></div>
 
     <button class="form__btn-sumbit accent" type="submit">Modificar</button>
   </form>
