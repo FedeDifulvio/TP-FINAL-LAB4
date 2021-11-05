@@ -60,7 +60,7 @@
 </nav>
 
 
-<h1 class="table-title">Modificar profesor</h1>
+<h1 class="table-title">Eliminar profesor</h1>
 
 <div class="full-width flex-column">
 
