@@ -60,7 +60,7 @@
 </nav>
 
 
-<h1 class="table-title">Modificar alumno</h1>
+<h1 class="table-title">Eliminar alumno</h1>
 
 <div class="full-width flex-column">
 
