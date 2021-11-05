@@ -1,3 +1,5 @@
+--COMENT PARA PUSHEAR
+
 create schema DB_Gestion_Educativa;
 use DB_Gestion_Educativa;
 
