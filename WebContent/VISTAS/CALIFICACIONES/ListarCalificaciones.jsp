@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
 
 
-<title>Alumnos</title>
+<title>Listar Calificaciones</title>
 </head>
 <body>
 
@@ -32,7 +32,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       
-        <li class="nav-item">
+         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="../VISTAS PROFESOR/ListarProfesores.jsp">Profesores</a>
         </li>
         
@@ -66,46 +66,67 @@
 		
 		<div class="table-container max-width-container flex-column">
 			
-			<h1 class="table-title">Alumnos</h1>
+			<h1 class="table-title">Calificaciones de Curso</h1>
 			
 			<table id="table-1" class="display table table-light table-hover">
 	                    <thead class="table-dark">
 	                        <tr>
-	                            <th>DNI</th>
+	                            <th>Legajo</th>
 	                            <th scope="col">Nombre</th>                        
 	                            <th>Apellido</th>
-	                            <th>Fecha de nacimiento</th>
-	                            <th>Dirección</th>
-	                            <th>País</th>
-	                            <th>Provincia</th>
-	                            <th>Localidad</th>
-	                            <th>Mail</th>
-	                            <th>Teléfono</th>
-	                            <th> </th>
-	                            <th> </th>
+	                            <th>Primer parcial</th>
+	                            <th>Segundo parcial</th>
+	                            <th>Primer Recuperatorio</th>
+	                            <th>Segundo Recuperatorio</th>
+	                            <th>Estado</th>
 	                        </tr>
 	                   </thead>
-	                   <tbody>
-							<tr>
+	                   < <tbody>
+	                   
+	                   <%for(int x = 0; x<10; x++) 
+	                   {
+	                	  %>
+	                	  
+	                	  <tr>
 								<th>40.420.420</th>
 	                            <th scope="col">Alejandro</th>                        
 	                            <th>Gazzo</th>
-	                            <th>5/11/2021</th>
-	                            <th>Las Canarias 420</th>
-	                            <th>Angola</th>
-	                            <th>Baires</th>
-	                            <th>SanFer</th>
-	                            <th>kajslodas</th>
-	                            <th>11 2222 3333</th>
-	                            <th> <i class="fas fa-edit"></i> </th>
-	                            <th> <i class="fas fa-trash-alt"></i> </th>
-	
+	                            <th>
+	                            7
+	                            </th>
+	                            <th>
+	                            8
+	                            </th>
+	                            <th>
+	                            -
+	                            </th>
+	                            <th>
+	                            -
+	                            </th>
+	                            
+	                            <th>
+	                            Regular
+	                            </th>
+	                            
 							</tr>
+	                	  
+	                	  
+	                	  
+	                	  <%
+	                	   
+	                   }
+	                   
+	                   
+	                   
+	                   %>
+	                   
+	                   
+							
 	                   </tbody>
 	       </table>
 		
 		<form>
-			<input class="btn" type="submit" value="Agregar">
+			<input class="btn" type="submit" value="EDITAR CALIFICACIONES">
 		</form>
 		</div>
 	

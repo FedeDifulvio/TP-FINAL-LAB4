@@ -8,8 +8,8 @@
 <title>Home</title>
 </head>
 
-<link rel="stylesheet" href="../Styles/Styles.css" />
-<link rel="stylesheet" href="../Styles/mini-lib.css" />
+<link rel="stylesheet" href="../../Styles/Styles.css" />
+<link rel="stylesheet" href="../../Styles/mini-lib.css" />
 
 <body>
 
@@ -20,7 +20,7 @@
   <div class="container-fluid max-width-container">
   
     <a class="navbar-brand flex-center-container" href="#">
-    	<img src="../Assets/logo.png" />
+    	<img src="../../Assets/logo.png" />
     </a>
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,20 +30,20 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="VISTAS PROFESOR/ListarProfesores.jsp">Profesores</a>
+         <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="../VISTAS PROFESOR/ListarProfesores.jsp">Profesores</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="VISTAS ALUMNO/ListarAlumnos.jsp">Alumnos</a>
+          <a class="nav-link" href="../VISTAS ALUMNO/ListarAlumnos.jsp">Alumnos</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link"  href="CURSOS/TodosLosCursos.jsp">Cursos</a>
+          <a class="nav-link"  href="../CURSOS/TodosLosCursos.jsp">Cursos</a>
         </li>
         
          <li class="nav-item">
-          <a class="nav-link" class="nav-link"  href="VISTAS USUARIO/ListarUsuarios.jsp">Usuarios</a>
+          <a class="nav-link" class="nav-link"  href="../VISTAS USUARIO/ListarUsuarios.jsp">Usuarios</a>
         </li>
         
       </ul>
@@ -60,43 +60,9 @@
 <!-- Fin navbar -->
 
 
-<div class="full-width flex-center-container">
+
 	
-	<div class="max-width-container">
-		
-		<div class="home-banner flex-center-container flex-column flex-center-container">
-			<img src="../Assets/comune.png">
-			<h1 class="mt-3">¡Bienvenido al sistema!</h1>
-		</div>
-		
-		<div class="dashboard-card-container full-width responsive-container flex-center-container">
-		
-			<div class="dashboard-card">
-				<a class="dashboard-card-banner" href="VISTAS PROFESOR/ListarProfesores.jsp">Profesores</a>	
-			</div>
-			
-			<div class="dashboard-card">
-				<a class="dashboard-card-banner" href="VISTAS ALUMNO/ListarAlumnos.jsp">Alumnos</a>	
-			</div>
-			
-			<div class="dashboard-card">
-				<a class="dashboard-card-banner" href="CURSOS/TodosLosCursos.jsp">Cursos</a>	
-			</div>
-			
-			<div class="dashboard-card">
-				<a class="dashboard-card-banner" href="VISTAS USUARIO/ListarUsuarios.jsp">Usuarios</a>	
-			</div>
-		
-		</div>
 	
-	</div>
-
-</div>
-
-
-
-
-
 </main>
 
 </body>

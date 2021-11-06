@@ -29,19 +29,19 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Profesores</a>
+          <a class="nav-link active" aria-current="page" href="../VISTAS PROFESOR/ListarProfesores.jsp">Profesores</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="#">Alumnos</a>
+          <a class="nav-link" href="../VISTAS ALUMNO/ListarAlumnos.jsp">Alumnos</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link">Cursos</a>
+          <a class="nav-link"  href="../CURSOS/TodosLosCursos.jsp">Cursos</a>
         </li>
         
          <li class="nav-item">
-          <a class="nav-link">Usuarios</a>
+          <a class="nav-link" class="nav-link"  href="../VISTAS USUARIO/ListarUsuarios.jsp">Usuarios</a>
         </li>
         
       </ul>

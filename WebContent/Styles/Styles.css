@@ -24,6 +24,7 @@ p, a, a:visited, a:hover{
 body{
 	background-color: #2C3E50 !important;
 	color: #F2EAE8 !important; 
+	
 }
 
 .accent {
@@ -87,6 +88,13 @@ input[type="submit"]{
 	margin-block: 2rem;
 	text-align: center;
 }
+
+
+
+
+
+
+
 
 .even{
 	background-color: transparent;
@@ -267,6 +275,8 @@ select:disabled{
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
+
+
 
 
 

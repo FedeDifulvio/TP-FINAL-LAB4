@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="../../Styles/Styles.css" />
 <link rel="stylesheet" href="../../Styles/mini-lib.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Calificaciones Curso</title>
+<title> Editar Calificaciones Curso</title>
 </head>
 <body>
 <main class="main-container">
@@ -27,20 +27,20 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Alumnos</a>
+         <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="../VISTAS PROFESOR/ListarProfesores.jsp">Profesores</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="#">Alumnos</a>
+          <a class="nav-link" href="../VISTAS ALUMNO/ListarAlumnos.jsp">Alumnos</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link">Cursos</a>
+          <a class="nav-link"  href="../CURSOS/TodosLosCursos.jsp">Cursos</a>
         </li>
         
          <li class="nav-item">
-          <a class="nav-link">Usuarios</a>
+          <a class="nav-link" class="nav-link"  href="../VISTAS USUARIO/ListarUsuarios.jsp">Usuarios</a>
         </li>
         
       </ul>
@@ -62,6 +62,8 @@
 		<div class="table-container max-width-container flex-column">
 			
 			<h1 class="table-title">Calificaciones Curso</h1>
+			<h1 class="table-title">Curso 1</h1>
+			
 			
 			<table id="table-1" class="display table table-light table-hover">
 	                    <thead class="table-dark">
