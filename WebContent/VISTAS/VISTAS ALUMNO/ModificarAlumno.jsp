@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
 
 
-<title>Modificar profesor</title>
+<title>Modificar Alumno</title>
 </head>
 <body>
 
@@ -119,15 +119,15 @@
 
       </select>
     </div>
-    
-    <div class="form__input-container">
-      <label for="document_type">Localidad</label>
+     <div class="form__input-container">
+      <label for="document_type">Localidad </label>
       <select name="document_type" id="document_type">
 
       </select>
     </div>
-	<div class="form__input-container" style=" width: 100%"></div>
-    <button class="form__btn-sumbit accent" type="submit">Modificar</button>
+      <div class="form__input-container" style=" width: 100%"></div>
+     <button class="form__btn-sumbit accent" type="submit">Modificar</button>
+   
   </form>
 
 </section>
