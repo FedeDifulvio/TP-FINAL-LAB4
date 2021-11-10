@@ -24,13 +24,13 @@
 				<img class="login-img" src="../Assets/login-comune.png" />
 				
 				<label>Usuario</label>
-				<input type="text" required>
+				<input type="text">
 				
 				<label>Contraseña</label>
-				<input type="password" required>
+				<input type="password">
 				
-				<input type="submit" class="btn accent text-white mt-4">
-			
+				<!-- <input type="submit" class="btn accent text-white mt-4"> -->
+			    <a class="btn accent text-white mt-4" href="HOME.jsp">Enviar</a>
 			</form>
 		
 		</div>

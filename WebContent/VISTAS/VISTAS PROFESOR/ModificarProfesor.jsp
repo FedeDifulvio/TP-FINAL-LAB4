@@ -131,10 +131,10 @@
     </div>
     
     <div class="form__input-container">
-    
-    <input required type="text" value="Localidad" name="lastname" id="lastname">
+     <label for="document_type">Localidad</label>
+    <input required type="text" value="San Isidro" name="lastname" id="lastname">
     <!--
-      <label for="document_type">Localidad</label>
+     
       <select name="document_type" id="document_type">
  -->
       </select>
