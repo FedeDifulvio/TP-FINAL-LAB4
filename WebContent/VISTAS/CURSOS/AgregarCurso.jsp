@@ -10,6 +10,7 @@
 
 <link rel="stylesheet" href="../../Styles/Styles.css" />
 <link rel="stylesheet" href="../../Styles/mini-lib.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
 
 <body>
 
@@ -59,7 +60,94 @@
 </nav>
 <!-- Fin navbar -->
 
+ <div class="container">
+ 
+ <div class="row justify-content-center mb-3">
+            <div class="col-md-4 mt-3"  style="text-align:center; border-radius: 20px;">
+                <h1 class="h1">Agregar Curso</h1>
+            </div>
+        </div>
+ 
 
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-4">
+        
+        <label for="lastname" class="px-3" style="font-size: 2rem">Profesor : </label>
+       
+       <select name="document_type" id="document_type">
+	                               <option  value=""> Gazzo, Alejandro</option>
+                                   <option  value="1">Arostegui, isidoro</option>
+                                   <option  value="2">Morgado, Santiago</option>       
+                                </select>
+      
+      </div>
+       
+    </div>
+    
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-4">
+        
+        <label for="lastname" class="px-3" style="font-size: 2rem">Materia : </label>
+       
+       <select name="document_type" id="document_type">
+	                               <option  value="">Laboratorio IV</option>
+                                   <option  value="1">Programación III</option>
+                                   <option  value="2">Sistemas Operativos</option>       
+                                </select>
+      
+      </div>
+       
+    </div>
+    
+    
+    <div class="row justify-content-center mt-5">
+            <div class="col-md-4 mt-3"  style="text-align:center; border-radius: 20px;">
+                <h3 class="h3">Listado de Alumnos</h3>
+            </div>
+        </div>
+    
+    <div class="row">
+      <table id="table-1" class="display table table-light table-hover">
+	                    <thead class="table-dark">
+	                        <tr> 
+	                            <th>Legajo</th>
+	                            <th>Nombre</th>                        
+	                            <th>Apellido</th>
+	                            <th>Seleccionado</th>
+	                            
+	                        </tr>
+	                   </thead>
+	                   <tbody>
+							<tr>
+								<th>5555</th>
+	                            <th scope="col">Alejandro</th>                        
+	                            <th>Gazzo</th>
+	                            <th > <input type="checkbox"/></th>
+							</tr>
+							<tr>
+								<th>666</th>
+	                            <th>Santiago</th>                        
+	                            <th>Arostegui</th>
+	                            <th> <input type="checkbox"/></th>
+							</tr>
+							<tr>
+								<th>7777</th>
+	                            <th>Ignacio</th>                        
+	                            <th>Morgado</th>
+	                            <th> <input type="checkbox"/></th>
+							</tr>
+	                   </tbody>
+	       </table>
+    
+    </div>
+    
+    <form class="flex-evenly-container align-items-center">
+        <button class="btn accent" type="submit">Guardar</button>
+      </form>
+    
+    
+    
+ </div>
 
 	
 	
@@ -67,4 +155,16 @@
 
 </body>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+ <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+ <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script>
+    $(document).ready(function() {
+        $('#table-1').DataTable({
+            "language": {
+                search:"Buscar"
+            }
+        });
+    } );
+    </script>
 </html>

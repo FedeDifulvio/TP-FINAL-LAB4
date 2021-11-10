@@ -29,6 +29,7 @@ body{
 
 .accent {
 	background-color: #5165FA !important;
+	color: white;
 }
 
 .card-background{
@@ -41,6 +42,13 @@ input[type="submit"]{
 	padding: .5rem 1rem;
 	outline: none;
 	box-shadow: unset;
+}
+
+input[type="checkbox"]{
+	
+	width: 20px; 
+	height: 20px;
+	margin: auto;
 }
 
 /*---------------------- Login ----------------------*/

@@ -61,7 +61,7 @@
 
 
 <h1 class="table-title">Eliminar profesor</h1>
-
+<div class="row">
 <div class="full-width flex-column">
 
 	<div class="flex-center-container flex-column max-width-container">
@@ -74,57 +74,51 @@
   
   	<div class="form__input-container">
       <label for="firstname">Legajo</label>
-      <input required type="number" name="firstname" id="firstname">
+      <input disabled type="number" name="firstname" id="firstname" value="1111">
     </div>
   
 
     <div class="form__input-container">
       <label for="firstname">Nombre</label>
-      <input required type="text" name="firstname" id="firstname">
+      <input disabled type="text" name="firstname" id="firstname" value="Alejandro" >
     </div>
     
     <div class="form__input-container">
       <label for="lastname">Apellido</label>
-      <input required type="text" name="lastname" id="lastname">
+      <input disabled type="text" name="firstname" id="firstname" value="Gazzo" >
     </div>
     
     <div class="form__input-container">
       <label for="lastname">Email</label>
-      <input required type="email" name="lastname" id="lastname">
+     <input disabled type="text" name="firstname" id="firstname" value="agazzo@everis.com" >
     </div>
     
     
     <div class="form__input-container">
       <label for="lastname">Telefono</label>
-      <input required type="phone" name="lastname" id="lastname">
+      <input disabled type="text" name="firstname" id="firstname" value="15342312" >
     </div>
     
     <div class="form__input-container">
       <label for="lastname">Direccion</label>
-      <input required type="text" name="lastname" id="lastname">
+     <input disabled type="text" name="firstname" id="firstname" value=" calle 3423" >
     </div>
     
     
     
     <div class="form__input-container">
       <label for="document_type">País</label>
-      <select name="document_type" disabled id="document_type">
-
-      </select>
+      <input disabled type="text" name="firstname" id="firstname" value="Argentina" >
     </div>
 
     <div class="form__input-container">
       <label for="document_type">Provincia</label>
-      <select name="document_type" disabled id="document_type">
-
-      </select>
+      	<input type="text"  value = "Buenos Aires" disabled>
     </div>
     
     <div class="form__input-container">
       <label for="document_type">Localidad</label>
-      <select name="document_type" disabled id="document_type">
-
-      </select>
+      	<input type="text"  value ="San Fernando" disabled>
     </div>
     <div class="form__input-container"></div>
 	<div class="form__input-container" style=" width: 100%"></div>
@@ -135,6 +129,7 @@
 	
 	</div>
 
+</div>
 </div>
 
 

@@ -61,7 +61,7 @@
 
 
 <h1 class="table-title">Eliminar alumno</h1>
-
+<div class="row">
 <div class="full-width flex-column">
 
 	<div class="flex-center-container flex-column max-width-container">
@@ -126,6 +126,7 @@
 
       </select>
     </div>
+     <div class="form__input-container"></div>
     <div class="form__input-container" style=" width: 100%"></div>
     <button class="form__btn-sumbit" type="submit">Eliminar</button>
   </form>
@@ -135,6 +136,8 @@
 	</div>
 
 </div>
+
+	</div>
 
 
 

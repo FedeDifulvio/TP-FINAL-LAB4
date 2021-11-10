@@ -112,13 +112,21 @@
 				</div>
        
        </div>
-       
+       <br/>
+        <br/>
+         <br/>
+         
        </div>
-        
-        
-        
-        
+              
 </div>
+
+<br/>
+<br/>
+<br/>
+<br/>
+ <div class="row">
+           <a href="AgregarCurso.jsp" class="btn btn-success">Agregar</a>
+         </div>
 
 
 

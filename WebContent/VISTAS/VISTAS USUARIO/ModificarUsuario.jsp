@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="../../Styles/Styles.css" />
 <link rel="stylesheet" href="../../Styles/mini-lib.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Alumnos</title>
+<title>Profesores</title>
 </head>
 <body>
 
@@ -55,86 +55,34 @@
   </div>
 </nav>
 
+ <div class="container">
+            <h1 class="table-title">Modificar Usuario</h1>
+            <div class="row justify-content-center mb-3">
+                <div class="col-md-4 mt-4" style="text-align: center;">
+                    <h3>Profesor :  <span style="color: #F5B7B1">Juan López </span></h3>
+                </div>
+            </div>
 
-<h1 class="table-title">Agregar alumno</h1>
+             <br/>
+             <br/>
+            <div class="login-form-container max-width-container full-height flex-center-container flex-column align-center-container">
+            <form class="flex-column">
+				
+				<label>Usuario</label>
+				<input type="text" disabled value = "Juan">
+				  <br/>
+				<label>Contraseña</label>
+				<input type="password" disabled value ="1234">
+				
+				<input type="submit" value="Modificar" class="btn accent text-white mt-4">
+			</form>
+			 </div>
+           
+            
+          </div>
 
-<div class="row">
-
-<div class="full-width flex-column">
-
-	<div class="flex-center-container flex-column max-width-container">
-	
-<section class="form__container full-width flex-center-container">
-  <div class="form__container__heading flex-center-container">
 
 
-  <form class="form max-width-container flex-center-container full-width">
-  
-  	<div class="form__input-container">
-      <label for="firstname">Legajo</label>
-      <input required type="number" name="firstname" id="firstname">
-    </div>
-  
-
-    <div class="form__input-container">
-      <label for="firstname">Nombre</label>
-      <input required type="text" name="firstname" id="firstname">
-    </div>
-    
-    <div class="form__input-container">
-      <label for="lastname">Apellido</label>
-      <input required type="text" name="lastname" id="lastname">
-    </div>
-    
-    <div class="form__input-container">
-      <label for="lastname">Email</label>
-      <input required type="email" name="lastname" id="lastname">
-    </div>
-    
-    
-    <div class="form__input-container">
-      <label for="lastname">Telefono</label>
-      <input required type="phone" name="lastname" id="lastname">
-    </div>
-    
-    <div class="form__input-container">
-      <label for="lastname">Direccion</label>
-      <input required type="text" name="lastname" id="lastname">
-    </div>
-    
-    
-    
-    <div class="form__input-container">
-      <label for="document_type">País</label>
-      <select name="document_type" id="document_type">
-
-      </select>
-    </div>
-
-    <div class="form__input-container">
-      <label for="document_type">Provincia</label>
-      <select name="document_type" id="document_type">
-
-      </select>
-    </div>
-    
-    <div class="form__input-container">
-      <label for="document_type">Localidad</label>
-      <select name="document_type" id="document_type">
-
-      </select>
-    </div>
-     <div class="form__input-container"></div>
-     <div class="form__input-container" style=" width: 100%"></div>
-    <button class="form__btn-sumbit accent" type="submit">Agregar</button>
-  </form>
-
-</section>
-	
-	</div>
-
-</div>
-</div>
 
 
 

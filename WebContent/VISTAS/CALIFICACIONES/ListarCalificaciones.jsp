@@ -126,7 +126,10 @@
 	       </table>
 		
 		<form>
-			<input class="btn" type="submit" value="EDITAR CALIFICACIONES">
+		
+		   <a href="EditarCalificacionesAlumnos.jsp" class="btn accent" type="submit">EDITAR CALIFICACIONES</a>
+		
+			<!--<input class="btn accent" type="submit" value="EDITAR CALIFICACIONES">  -->
 		</form>
 		</div>
 	

@@ -63,6 +63,7 @@
 
 <h1 class="table-title">Modificar profesor</h1>
 
+<div class="row">
 <div class="full-width flex-column">
 
 	<div class="flex-center-container flex-column max-width-container">
@@ -75,60 +76,72 @@
   
   	<div class="form__input-container">
       <label for="firstname">Legajo</label>
-      <input required type="number" name="firstname" id="firstname">
+      <input required type="number" name="firstname" id="firstname" value="1111">
     </div>
   
 
     <div class="form__input-container">
       <label for="firstname">Nombre</label>
-      <input required type="text" name="firstname" id="firstname">
+      <input required type="text" name="firstname" id="firstname" value="Alejandro">
     </div>
     
     <div class="form__input-container">
       <label for="lastname">Apellido</label>
-      <input required type="text" name="lastname" id="lastname">
+      <input required type="text" name="lastname" id="lastname" value="Gazzo">
     </div>
     
     <div class="form__input-container">
       <label for="lastname">Email</label>
-      <input required type="email" name="lastname" id="lastname">
+      <input required type="email" value="agazzo@everis.com" id="lastname">
     </div>
     
     
     <div class="form__input-container">
       <label for="lastname">Telefono</label>
-      <input required type="phone" name="lastname" id="lastname">
+      <input required type="phone" value="333444555" name="lastname" id="lastname">
     </div>
     
     <div class="form__input-container">
       <label for="lastname">Direccion</label>
-      <input required type="text" name="lastname" id="lastname">
+      <input required type="text" value="calle 123" name="lastname" id="lastname">
     </div>
     
     
     
     <div class="form__input-container">
       <label for="document_type">País</label>
-      <select name="document_type" id="document_type">
+       <input required type="text" value="Argentina" name="lastname" id="lastname">
+      
+     <!-- <select name="document_type" id="document_type">
 
       </select>
+       -->
     </div>
 
     <div class="form__input-container">
       <label for="document_type">Provincia</label>
-      <select name="document_type" id="document_type">
+      
+      <input required type="text" value="Buenos Aires" name="lastname" id="lastname">
+      
+           <!--   <select name="document_type" id="document_type">
 
       </select>
+      -->
+      
     </div>
     
     <div class="form__input-container">
+    
+    <input required type="text" value="Localidad" name="lastname" id="lastname">
+    <!--
       <label for="document_type">Localidad</label>
       <select name="document_type" id="document_type">
-
+ -->
       </select>
     </div>
     
-       <div class="form__input-container" style=" width: 100%"></div>
+    <div class="form__input-container"></div>
+	<div class="form__input-container" style=" width: 100%"></div>
 
     <button class="form__btn-sumbit accent" type="submit">Modificar</button>
   </form>
@@ -138,7 +151,7 @@
 	</div>
 
 </div>
-
+</div>
 
 
 

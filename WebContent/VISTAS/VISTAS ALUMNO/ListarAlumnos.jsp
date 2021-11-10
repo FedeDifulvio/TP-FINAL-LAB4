@@ -97,16 +97,19 @@
 	                            <th>SanFer</th>
 	                            <th>kajslodas</th>
 	                            <th>11 2222 3333</th>
-	                            <th> <i class="fas fa-edit"></i> </th>
-	                            <th> <i class="fas fa-trash-alt"></i> </th>
+	                            <th> <a href="ModificarAlumno.jsp"> <i class="fas fa-edit"></i> </a>  </th>
+	                            <th> <a href="EliminarAlumno.jsp" ><i class="fas fa-trash-alt"></i></a> </th>
 	
 							</tr>
 	                   </tbody>
 	       </table>
 		
 		<form>
-			<input class="btn" type="submit" value="Agregar">
-		</form>
+		
+		   <a class="btn accent" href= "AddAlumno.jsp">Agregar</a>
+		
+			<!--<input class="btn" type="submit" value="Agregar"> -->
+		</form> 
 		</div>
 	
 	</div>
