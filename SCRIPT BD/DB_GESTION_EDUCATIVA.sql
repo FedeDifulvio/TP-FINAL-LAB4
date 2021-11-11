@@ -1,5 +1,5 @@
---COMENT PARA PUSHEAR
-DROP SCHEMA DB_Gestion_Educativa
+#COMENT PARA PUSHEAR
+
 create schema DB_Gestion_Educativa;
 use DB_Gestion_Educativa;
 
@@ -28,7 +28,7 @@ create table usuario (
     user_name nvarchar(50) not null,
     pass nvarchar(50) not null,
     tipo int not null,
-    token varchar(10),
+    token int,
     estado bit not null,
     foreign key (tipo) references tipo_usuario(id)
 );
@@ -110,14 +110,16 @@ create table localidad(
     foreign key (id_provincia) references provincia(id)
 );
 
+
+
 create table calificacion_x_alumno(
 	id int primary key auto_increment not null,
     id_alumno int not null,
     id_curso int not null,
-    parcial_1 smallint,
-    parcial_2 smallint,
-    recuperatorio_1 smallint,
-    recuperatorio_2 smallint,
+    parcial_1 decimal(3,2),
+    parcial_2 decimal(3,2),
+    recuperatorio_1 decimal(3,2),
+    recuperatorio_2 decimal(3,2),
     estado_academico bit not null,
     foreign key (id_alumno) references alumno(id),
     foreign key (id_curso) references curso(id)
@@ -139,12 +141,8 @@ insert into materia (nombre, estado, id_carrera) values
     ("Organizacion Empresarial"	,	1	,1),
     ("Sistema de procesamiento de datos"	,	1	,1);
 
-insert into alumno (legajo, dni, nombre, apellido, fecha_nac, adress, provincia, localidad, pais, email, tel, estado)
-values
-("1000", "1111", "Ignacio", "Lacioppa", "01-18-1995", "Carlos Casares 1115", )
 
-
-insert into pais (nombre) values ('Argentina'),('Chile'),('Uruguay')
+insert into pais (nombre) values ('Argentina'),('Chile'),('Uruguay');
 
 insert into provincia (nombre, id_pais) 
 value
@@ -190,3 +188,13 @@ INSERT INTO alumno (legajo, dni, nombre, apellido, fecha_nac, adress, id_pais, i
 ("1013","9017","Nito","Legend","1999-01-02","Maipu 1442",1,1,1,"nlegendt@yahoo.com","92138319",1),
 ("1014","9018","Artorias","Sun","1969-09-12","Carlos 78",3,1,16,"asun@yahoo.com","123912",1),
 ("1015","9019","Dante","Smith","2001-11-11","Centenario 15666",2,7,8,"dsmith@yahoo.com","981231",1);
+
+select a.legajo, a.nombre, a.apellido, p.nombre as "pais", pr.nombre as "provincia", l.nombre as "localidad" 
+from alumno as a
+inner join pais as p on a.id_pais = p.id
+inner join provincia as pr on a.id_provincia = pr.id
+inner join localidad as l on a.id_localidad = l.id
+order by a.legajo;
+
+
+
