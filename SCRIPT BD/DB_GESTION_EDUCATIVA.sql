@@ -1,5 +1,5 @@
 --COMENT PARA PUSHEAR
-
+DROP SCHEMA DB_Gestion_Educativa
 create schema DB_Gestion_Educativa;
 use DB_Gestion_Educativa;
 
