@@ -64,12 +64,42 @@ public class DaoAlumno implements IAlumno{
 
 	public boolean agregarAlumno(Alumno alumno) {
 		
+		
+		
+		
+		
 		return false;
 	}
 
 	
 	public boolean eliminarAlumno(int idAlumno) {
 		
+		String query = "update personas set estado = false where Dni =?";
+	       
+		Conexion conexionSql = null; 
+		
+		try {
+			
+			conexionSql = new Conexion();
+			Connection connection = conexionSql.obtenerConexion(); 
+			
+			PreparedStatement statement = connection.prepareStatement(query);
+			statement.setInt(1, idAlumno);
+			
+			if(statement.executeUpdate()==1) {
+				connection.commit();
+				return true;
+			}
+				
+		} catch (SQLException e) {
+			
+			 e.printStackTrace();
+		} 
+		
+		finally {
+			conexionSql.cerrarConexion();
+		}
+
 		return false;
 	}
 
