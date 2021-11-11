@@ -110,6 +110,8 @@ create table localidad(
     foreign key (id_provincia) references provincia(id)
 );
 
+
+
 create table calificacion_x_alumno(
 	id int primary key auto_increment not null,
     id_alumno int not null,
@@ -194,4 +196,5 @@ inner join provincia as pr on a.id_provincia = pr.id
 inner join localidad as l on a.id_localidad = l.id
 order by a.legajo;
 
-select * from alumno
+
+
