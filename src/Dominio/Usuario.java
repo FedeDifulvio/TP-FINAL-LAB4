@@ -18,6 +18,12 @@ public class Usuario {
 			estado = false;
 		}
 
+		@Override
+		public String toString() {
+			return "Usuario [idUsuario=" + idUsuario + ", user_Name=" + user_Name + ", pass=" + pass + ", tipoUsuario="
+					+ tipoUsuario.getIdTipoUsuario() + ", referencia=" + referencia + ", estado=" + estado + "]";
+		}
+
 		public Usuario(int idUsuario, String user_Name, String pass, TipoUsuario tipoUsuario, int referencia,
 				boolean estado) {
 			super();
@@ -59,7 +65,7 @@ public class Usuario {
 		public void setReferencia(int referencia) {
 			this.referencia = referencia;
 		}
-		public boolean isEstado() {
+		public boolean getEstado() {
 			return estado;
 		}
 		public void setEstado(boolean estado) {

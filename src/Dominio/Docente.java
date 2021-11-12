@@ -1,6 +1,6 @@
 package Dominio;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 public class Docente {
 	private int idDocente;
@@ -8,32 +8,24 @@ public class Docente {
 	private String dni;
 	private String nombre;
 	private String apellido;
-	private Date fecha_Nacimiento;
+	private LocalDate fecha_Nacimiento;
 	private String adress;
 	private Localidad localidad;
+	private Provincia provincia;
+	private Pais pais;
 	private String email;
 	private String telefono;
 	private boolean estado;
 	
 	
-	public Docente () {
-		super();
-		this.idDocente = 0;
-		this.legajo = null;
-		this.dni = null;
-		this.nombre = null;
-		this.apellido = null;
-		this.fecha_Nacimiento = null;
-		this.adress = null;
-		this.localidad = null;
-		this.email = null;
-		this.telefono = null;
-		this.estado = false;
-	}
 
+	public Docente() {
+		super();
+	}
 	
-	public Docente(int idDocente, String legajo, String dni, String nombre, String apellido, Date fecha_Nacimiento,
-			String adress, Localidad localidad, String email, String telefono, boolean estado) {
+	public Docente(int idDocente, String legajo, String dni, String nombre, String apellido, LocalDate fecha_Nacimiento,
+		String adress, Localidad localidad, Provincia provincia, Pais pais, String email, String telefono,
+		boolean estado) {
 		super();
 		this.idDocente = idDocente;
 		this.legajo = legajo;
@@ -43,12 +35,19 @@ public class Docente {
 		this.fecha_Nacimiento = fecha_Nacimiento;
 		this.adress = adress;
 		this.localidad = localidad;
+		this.provincia = provincia;
+		this.pais = pais;
 		this.email = email;
 		this.telefono = telefono;
 		this.estado = estado;
 	}
-	
-	
+	@Override
+	public String toString() {
+		return "Docente [idDocente=" + idDocente + ", legajo=" + legajo + ", dni=" + dni + ", nombre=" + nombre
+				+ ", apellido=" + apellido + ", fecha_Nacimiento=" + fecha_Nacimiento + ", adress=" + adress
+				+ ", localidad=" + localidad.getIdLocalidad() + ", provincia=" + provincia.getIdProvincia() + ", pais=" + pais.getIdPais() + ", email=" + email
+				+ ", telefono=" + telefono + ", estado=" + estado + "]";
+	}
 	public int getIdDocente() {
 		return idDocente;
 	}
@@ -79,10 +78,10 @@ public class Docente {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-	public Date getFecha_Nacimiento() {
+	public LocalDate getFecha_Nacimiento() {
 		return fecha_Nacimiento;
 	}
-	public void setFecha_Nacimiento(Date fecha_Nacimiento) {
+	public void setFecha_Nacimiento(LocalDate fecha_Nacimiento) {
 		this.fecha_Nacimiento = fecha_Nacimiento;
 	}
 	public String getAdress() {
@@ -109,11 +108,31 @@ public class Docente {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	public boolean isEstado() {
+	public boolean getEstado() {
 		return estado;
 	}
 	public void setEstado(boolean estado) {
 		this.estado = estado;
+	}
+
+
+	public Provincia getProvincia() {
+		return provincia;
+	}
+
+
+	public void setProvincia(Provincia provincia) {
+		this.provincia = provincia;
+	}
+
+
+	public Pais getPais() {
+		return pais;
+	}
+
+
+	public void setPais(Pais pais) {
+		this.pais = pais;
 	}
 	
 	
