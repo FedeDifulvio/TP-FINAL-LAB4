@@ -18,7 +18,7 @@ private Connection connection;
 	try
 	{   
 		Class.forName("com.mysql.jdbc.Driver"); 
-		this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_gestion_educativa","root", passFede);
+		this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_gestion_educativa","root", passSanti);
 		this.connection.setAutoCommit(false); 
 	}
 	catch(Exception e)

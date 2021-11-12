@@ -1,6 +1,7 @@
 package Dominio;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 public class Alumno {
 	private int idAlumno;
@@ -8,7 +9,7 @@ public class Alumno {
 	private String dni;
 	private String nombre;
 	private String apellido;
-	private Date fecha_Nacimiento;
+	private LocalDate fecha_Nacimiento;
 	private String adress;
 	private Localidad localidad;
 	private Provincia provincia;
@@ -31,8 +32,19 @@ public class Alumno {
 	}
 
 
-	public Alumno(int idAlumno, String legajo, String dni, String nombre, String apellido, Date fecha_Nacimiento,
-			String adress, Localidad localidad, Provincia provincia, Pais pais, String email, String telefono,
+	public Alumno(
+			int idAlumno, 
+			String legajo, 
+			String dni, 
+			String nombre, 
+			String apellido, 
+			LocalDate fecha_Nacimiento,
+			String adress, 
+			Localidad localidad, 
+			Provincia provincia, 
+			Pais pais, 
+			String email, 
+			String telefono,
 			boolean estado) {
 		super();
 		this.idAlumno = idAlumno;
@@ -97,10 +109,10 @@ public class Alumno {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-	public Date getFecha_Nacimiento() {
+	public LocalDate getFecha_Nacimiento() {
 		return fecha_Nacimiento;
 	}
-	public void setFecha_Nacimiento(Date fecha_Nacimiento) {
+	public void setFecha_Nacimiento(LocalDate fecha_Nacimiento) {
 		this.fecha_Nacimiento = fecha_Nacimiento;
 	}
 	public String getAdress() {
@@ -127,7 +139,7 @@ public class Alumno {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	public boolean isEstado() {
+	public boolean getEstado() {
 		return estado;
 	}
 	public void setEstado(boolean estado) {

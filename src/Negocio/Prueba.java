@@ -1,6 +1,8 @@
 package Negocio;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 
 import Dao.DaoAlumno;
 import Dao.DaoLocalidad;
@@ -23,18 +25,40 @@ public class Prueba {
 		ArrayList<Pais> paises =  daopaises.listarPaises();
 		DaoAlumno daoAlumnos = new DaoAlumno();
 		ArrayList<Alumno> alumnos =  daoAlumnos.listarAlumnos();
-		for (Localidad loc : localidades) {
-			System.out.println(loc.toString());
+		LocalDate ld = LocalDate.of(2019, 10, 30);
+		Localidad loc = new Localidad(1, 1, "");
+		Provincia prov = new Provincia (1, "", 1);
+		Pais pais = new Pais (1, "");
+		//Alumno alumno = new Alumno(1,"1234","12345","alegato","420",date,"asd",loc,prov,pais,"asd","asd",false);
+		Alumno alumno = new Alumno();
+		alumno.setIdAlumno(25);
+		alumno.setLegajo("1234");
+		alumno.setDni("12345");
+		alumno.setNombre("a");
+		alumno.setApellido("420");
+		alumno.setFecha_Nacimiento(ld);
+		alumno.setAdress("asd");
+		alumno.setLocalidad(loc);
+		alumno.setProvincia(prov);
+		alumno.setPais(pais);
+		alumno.setEmail("asd");
+		alumno.setTelefono("asd");
+		alumno.setEstado(false);
+		//daoAlumnos.agregarAlumno(alumno);
+		daoAlumnos.modificarAlumno(alumno);
+		for (Localidad loca : localidades) {
+			System.out.println(loca.toString());
 		}
-		for (Provincia prov : provincias) {
-			System.out.println(prov.toString());
+		for (Provincia provv : provincias) {
+			System.out.println(provv.toString());
 		}
-		for (Pais pais : paises) {
-			System.out.println(pais.toString());
+		for (Pais paiss : paises) {
+			System.out.println(paiss.toString());
 		}
 		for (Alumno al: alumnos) {
 			System.out.println(al.toString());
 		}
+		
 	}
 
 }
