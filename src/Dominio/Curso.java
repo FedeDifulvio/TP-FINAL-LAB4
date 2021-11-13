@@ -1,13 +1,12 @@
 package Dominio;
 
-import java.sql.Date;
 import java.util.ArrayList;
 
 public class Curso {
 	private int idCurso;
 	private String nombre;
 	private String semestre;
-	private Date anio;
+	private String anio;
 	private Docente docente;
 	private Materia materia;
 	private boolean estado;
@@ -24,7 +23,7 @@ public class Curso {
 		listaAlumnos = null;
 	}
 
-	public Curso(int idCurso, String nombre, String semestre, Date anio, Docente docente, Materia materia,
+	public Curso(int idCurso, String nombre, String semestre, String anio, Docente docente, Materia materia,
 			boolean estado, ArrayList<Alumno> listaAlumnos) {
 		super();
 		this.idCurso = idCurso;
@@ -36,6 +35,27 @@ public class Curso {
 		this.estado = estado;
 		this.listaAlumnos = listaAlumnos;
 	}
+	
+	
+	public Curso(int idCurso, String nombre, String semestre, String anio, Docente docente, Materia materia,
+			boolean estado) {
+		super();
+		this.idCurso = idCurso;
+		this.nombre = nombre;
+		this.semestre = semestre;
+		this.anio = anio;
+		this.docente = docente;
+		this.materia = materia;
+		this.estado = estado;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public int getIdCurso() {
 		return idCurso;
@@ -55,10 +75,10 @@ public class Curso {
 	public void setSemestre(String semestre) {
 		this.semestre = semestre;
 	}
-	public Date getAnio() {
+	public String getAnio() {
 		return anio;
 	}
-	public void setAnio(Date anio) {
+	public void setAnio(String anio) {
 		this.anio = anio;
 	}
 	public Docente getDocente() {

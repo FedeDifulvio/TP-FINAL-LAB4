@@ -21,6 +21,11 @@ public class Docente {
 
 	public Docente() {
 		super();
+	} 
+	
+	public Docente( int idDocente, String nombre) {
+		this.idDocente = idDocente; 
+		this.nombre = nombre; 
 	}
 	
 	public Docente(int idDocente, String legajo, String dni, String nombre, String apellido, LocalDate fecha_Nacimiento,

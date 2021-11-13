@@ -14,6 +14,15 @@ public class Materia {
 		carrera = null;
 	}
 	
+	
+	public Materia( int id, String nombre) {
+		
+		idMateria = id;
+		nombreMateria = nombre;
+	}
+	
+	
+	
 	public Materia(int idMateria, String nombreMateria, boolean estado, Carrera carrera) {
 		super();
 		this.idMateria = idMateria;
