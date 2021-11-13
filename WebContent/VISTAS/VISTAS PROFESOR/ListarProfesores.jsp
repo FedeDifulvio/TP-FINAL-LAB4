@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import ="java.util.ArrayList" %>
+<%@page import ="Dominio.Docente" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -60,7 +62,12 @@
   
 </nav>
 <!-- Fin navbar -->
-
+<% ArrayList<Docente> listaDocentes = new ArrayList<Docente>();
+if(request.getAttribute("listaDocentes")!=null)
+{
+listaDocentes = (ArrayList<Docente>)request.getAttribute("listaDocentes");
+}
+%>
 
 	<div class="full-width flex-center-container">
 		
@@ -68,10 +75,11 @@
 			
 			<h1 class="table-title">Profesores</h1>
 			
-			<table id="table-1" class="display table table-light table-hover">
+			<table id="table-1" class="display table table-light table-hover">	                                    
 	                    <thead class="table-dark">
 	                        <tr>
 	                            <th>DNI</th>
+	                            <th>Legajo</th>
 	                            <th scope="col">Nombre</th>                        
 	                            <th>Apellido</th>
 	                            <th>Fecha de nacimiento</th>
@@ -86,21 +94,28 @@
 	                        </tr>
 	                   </thead>
 	                   <tbody>
+	                   <% for (Docente docente : listaDocentes){
+	                	   %>
 							<tr>
-								<th>40.420.420</th>
-	                            <th scope="col">Alejandro</th>                        
-	                            <th>Gazzo</th>
-	                            <th>5/11/2021</th>
-	                            <th>Las Canarias 420</th>
-	                            <th>Angola</th>
-	                            <th>Baires</th>
-	                            <th>SanFer</th>
-	                            <th>kajslodas</th>
-	                            <th>11 2222 3333</th>
+							
+								<th><%=docente.getDni() %></th>
+	                            <th><%=docente.getLegajo() %></th>                        
+	                            <th><%=docente.getNombre() %></th>
+	                            <th><%=docente.getApellido() %></th>
+	                            <th><%=docente.getFecha_Nacimiento() %></th>
+	                           	<th><%=docente.getAdress() %></th>
+	                            <th><%=docente.getPais().getNombrePais() %></th>
+	                            <th><%=docente.getProvincia().getNombreProvincia() %></th>
+	                            <th><%=docente.getLocalidad().getNombre() %></th>
+	                            <th><%=docente.getEmail() %></th>
+	                            <th><%=docente.getTelefono() %></th>
 	                             <th> <a href="ModificarProfesor.jsp"> <i class="fas fa-edit"></i> </a>  </th>
 	                            <th> <a href="EliminarProfesor.jsp" ><i class="fas fa-trash-alt"></i></a> </th>
 	
 							</tr>
+						<%	
+	                    }
+						%>
 	                   </tbody>
 	       </table>
 		

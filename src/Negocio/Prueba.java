@@ -5,40 +5,47 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import Dao.DaoAlumno;
+import Dao.DaoCalificaciones;
+import Dao.DaoCurso;
 import Dao.DaoDocente;
 import Dao.DaoLocalidad;
 import Dao.DaoPais;
 import Dao.DaoProvincias;
 import Dao.DaoUsuario;
 import Dominio.Alumno;
+import Dominio.Calificaciones;
+import Dominio.Curso;
 import Dominio.Docente;
 import Dominio.Localidad;
+import Dominio.Materia;
 import Dominio.Pais;
 import Dominio.Provincia;
 import Dominio.TipoUsuario;
 import Dominio.Usuario;
+import IDao.IDocente;
 
 public class Prueba {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		DaoLocalidad dao = new DaoLocalidad();
-		DaoProvincias daop = new DaoProvincias();
-		ArrayList<Localidad> localidades =  dao.listarLocalidades();
-		ArrayList<Provincia> provincias =  daop.listarProvincias();
-		DaoPais daopaises = new DaoPais();
-		ArrayList<Pais> paises =  daopaises.listarPaises();
-		DaoAlumno daoAlumnos = new DaoAlumno();
-		ArrayList<Alumno> alumnos =  daoAlumnos.listarAlumnos();
-		
-		DaoDocente daoDoc = new DaoDocente();
-		ArrayList<Docente> docentes =  daoDoc.listarDocentes();
-		LocalDate ld = LocalDate.of(2019, 10, 30);
-		Localidad loc = new Localidad(1, 1, "");
-		Provincia prov = new Provincia (1, "", 1);
-		Pais pais = new Pais (1, "");
-		//Alumno alumno = new Alumno(1,"1234","12345","alegato","420",date,"asd",loc,prov,pais,"asd","asd",false);
-//		Alumno alumno = new Alumno();
+//		DaoLocalidad dao = new DaoLocalidad();
+//		DaoProvincias daop = new DaoProvincias();
+//		ArrayList<Localidad> localidades =  dao.listarLocalidades();
+//		ArrayList<Provincia> provincias =  daop.listarProvincias();
+//		DaoPais daopaises = new DaoPais();
+//		ArrayList<Pais> paises =  daopaises.listarPaises();
+//		DaoAlumno daoAlumnos = new DaoAlumno();
+//		ArrayList<Alumno> alumnos =  daoAlumnos.listarAlumnos();
+//		
+//		DaoDocente daoDoc = new DaoDocente();
+//		ArrayList<Docente> docentes =  daoDoc.listarDocentes();
+//		LocalDate ld = LocalDate.of(2019, 10, 30);
+//		Localidad loc = new Localidad(1, 1, "");
+//		Provincia prov = new Provincia (1, "", 1);
+//		Pais pais = new Pais (1, "");
+//		Alumno alumno1 = new Alumno(1,"1234","12345","alegato","420",ld,"asd",loc,prov,pais,"asd","asd",true);
+//		Alumno alumno2 = new Alumno(2,"12345","123456","alegato2","420",ld,"asd",loc,prov,pais,"asd","asd",true);
+////		Alumno alumno2 = new Alumno();
 //		alumno.setIdAlumno(25);
 //		alumno.setLegajo("1234");
 //		alumno.setDni("12345");
@@ -92,17 +99,44 @@ public class Prueba {
 //		daoDoc.eliminarDocente(1);
 
 //		Usuario userPrueba = new Usuario(4, "SantiPerfecto", "Juan123", new TipoUsuario(1, ""), 420, true);
-		DaoUsuario daoUser = new DaoUsuario();
+//		DaoUsuario daoUser = new DaoUsuario();
+////		
+////		
+////		daoUser.eliminarUsuario(4);
+////		ArrayList<Usuario> usuarios =  daoUser.listarUsuarios();
+//////				
+////		for (Usuario user : usuarios) {
+////			System.out.println(user.toString());
+////		}
+//		ArrayList<Alumno> listaAlumnos = new ArrayList<Alumno>();
+//		listaAlumnos.add(alumno1);
+//		listaAlumnos.add(alumno2);
+//		DaoCurso daoCurso = new DaoCurso();
+//		Curso curso1 = new Curso(2,"curso1","2","2019",new Docente(1,"DifULVO","difulbo"),
+//				new Materia(1,"Progra"),true,listaAlumnos);
 //		
+//	
+//		daoCurso.AgregarCurso(curso1);
+		
 //		
-//		daoUser.eliminarUsuario(4);
-		ArrayList<Usuario> usuarios =  daoUser.listarUsuarios();
-//				
-		for (Usuario user : usuarios) {
-			System.out.println(user.toString());
+//		DaoCalificaciones daoCalificaciones = new DaoCalificaciones();
+//		ArrayList<Calificaciones> listaCalificaciones = new ArrayList<Calificaciones>();
+//		listaCalificaciones = daoCalificaciones.listarCalificaciones(7);
+//		
+//		for(Calificaciones cal : listaCalificaciones) {
+//			cal.setParcial1(2);
+//			cal.setRecuperatorio1(1);
+//			cal.setEstadoAcademico(false);
+//			daoCalificaciones.EditarCalificacionesCurso(cal);
+//		}
+//	
+		NegocioDocente negocioDocente = new NegocioDocente();
+		ArrayList<Docente> listaDocentes = new ArrayList<Docente>(); 
+		listaDocentes = negocioDocente.listarDocentes(); 
+		
+		for(Docente d : listaDocentes) {
+			System.out.println(d.toString());
 		}
-		
-		
 	}
 
 }

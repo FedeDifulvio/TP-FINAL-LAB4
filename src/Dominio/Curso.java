@@ -3,6 +3,8 @@ package Dominio;
 import java.util.ArrayList;
 
 public class Curso {
+	
+
 	private int idCurso;
 	private String nombre;
 	private String semestre;
@@ -48,7 +50,6 @@ public class Curso {
 		this.materia = materia;
 		this.estado = estado;
 	}
-	
 	
 	
 	
@@ -108,4 +109,9 @@ public class Curso {
 		this.estado = estado;
 	}
 	
+	@Override
+	public String toString() {
+		return "Curso [idCurso=" + idCurso + ", nombre=" + nombre + ", semestre=" + semestre + ", anio=" + anio
+				+ ", docente=" + docente.getApellido()  + ", materia=" + materia.getNombreMateria();
+	}
 }

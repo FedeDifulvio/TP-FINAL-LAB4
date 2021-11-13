@@ -2,7 +2,7 @@ package Dominio;
 
 public class Calificaciones {
 	private int idCalificaciones;
-	private int idAlumno;
+	private Alumno alumno;
 	private int idCurso;
 	private float parcial1;
 	private float parcial2;
@@ -13,7 +13,7 @@ public class Calificaciones {
 	public Calificaciones() {
 		super();
 		this.idCalificaciones = 0;
-		this.idAlumno = 0;
+		this.alumno = null;
 		this.idCurso = 0;
 		this.parcial1 = 0;
 		this.parcial2 = 0;
@@ -22,11 +22,15 @@ public class Calificaciones {
 		this.estadoAcademico = false;
 	}
 	
-	public Calificaciones(int idCalificaciones, int idAlumno, int idCurso, float parcial1, float parcial2,
-			float recuperatorio1, float recuperatorio2, boolean estadoAcademico) {
+	
+
+	public Calificaciones(int idCalificaciones, Alumno alumno, 
+			int idCurso, float parcial1, float parcial2,
+			float recuperatorio1, float recuperatorio2, 
+			boolean estadoAcademico) {
 		super();
 		this.idCalificaciones = idCalificaciones;
-		this.idAlumno = idAlumno;
+		this.alumno = alumno;
 		this.idCurso = idCurso;
 		this.parcial1 = parcial1;
 		this.parcial2 = parcial2;
@@ -41,12 +45,15 @@ public class Calificaciones {
 	public void setIdCalificaciones(int idCalificaciones) {
 		this.idCalificaciones = idCalificaciones;
 	}
-	public int getIdAlumno() {
-		return idAlumno;
+	
+	public Alumno getAlumno() {
+		return alumno;
 	}
-	public void setIdAlumno(int idAlumno) {
-		this.idAlumno = idAlumno;
+
+	public void setAlumno(Alumno alumno) {
+		this.alumno = alumno;
 	}
+
 	public int getIdCurso() {
 		return idCurso;
 	}
@@ -84,6 +91,11 @@ public class Calificaciones {
 		this.estadoAcademico = estadoAcademico;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Calificaciones [idCalificaciones=" + idCalificaciones + ", alumno=" + alumno.getApellido() + ", idCurso=" + idCurso
+				+ ", parcial1=" + parcial1 + ", parcial2=" + parcial2 + ", recuperatorio1=" + recuperatorio1
+				+ ", recuperatorio2=" + recuperatorio2 + ", estadoAcademico=" + estadoAcademico + "]";
+	}
 	
 }

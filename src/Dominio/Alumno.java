@@ -61,6 +61,18 @@ public class Alumno {
 		this.telefono = telefono;
 		this.estado = estado;
 	}
+	
+	public Alumno(int idAlumno, 
+			String legajo, 
+			String nombre, 
+			String apellido) {
+		super();
+		this.idAlumno = idAlumno;
+		this.legajo = legajo;
+		this.nombre = nombre;
+		this.apellido = apellido;
+	}
+	
 	public int getIdAlumno() {
 		return idAlumno;
 	}
