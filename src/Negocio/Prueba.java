@@ -130,13 +130,7 @@ public class Prueba {
 //			daoCalificaciones.EditarCalificacionesCurso(cal);
 //		}
 //	
-		NegocioDocente negocioDocente = new NegocioDocente();
-		ArrayList<Docente> listaDocentes = new ArrayList<Docente>(); 
-		listaDocentes = negocioDocente.listarDocentes(); 
 		
-		for(Docente d : listaDocentes) {
-			System.out.println(d.toString());
-		}
 	}
 
 }

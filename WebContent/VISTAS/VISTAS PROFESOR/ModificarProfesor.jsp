@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import ="Dominio.Docente" %>
+    <%@page import ="Dominio.Pais" %>
+    <%@page import ="Dominio.Provincia" %>
+    <%@page import ="Dominio.Localidad" %>
+    <%@page import ="java.util.ArrayList" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,8 +12,8 @@
 
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<link rel="stylesheet" href="../../Styles/Styles.css" />
-<link rel="stylesheet" href="../../Styles/mini-lib.css" />
+<link rel="stylesheet" href="Styles/Styles.css" />
+<link rel="stylesheet" href="Styles/mini-lib.css" />
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
 
 
@@ -23,7 +28,7 @@
   <div class="container-fluid max-width-container">
   
     <a class="navbar-brand flex-center-container" href="#">
-    	<img src="../../Assets/logo.png" />
+    	<img src="Assets/logo.png" />
     </a>
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,73 +75,148 @@
 	
 <section class="form__container full-width flex-center-container">
   <div class="form__container__heading">
+  
+  
+  <%
+     Docente docente = new Docente();
+     docente = (Docente)request.getAttribute("docenteModificar"); 
+  
+  
+  %>
+  
+  <%    
+         ArrayList<Pais> listaPaises = new ArrayList<Pais>();
+         if(request.getAttribute("paises")!=null)
+         {
+        	 listaPaises = (ArrayList<Pais>)request.getAttribute("paises"); 
+        	 
+         }
+         
+         ArrayList<Provincia> listaProvincias = new ArrayList<Provincia>();
+         if(request.getAttribute("provincias")!=null)
+         {
+        	 listaProvincias = (ArrayList<Provincia>)request.getAttribute("provincias"); 
+        	 
+         }
+         
+         ArrayList<Localidad> listaLocalidades = new ArrayList<Localidad>();
+         if(request.getAttribute("localidades")!=null)
+         {
+        	 listaLocalidades = (ArrayList<Localidad>)request.getAttribute("localidades"); 
+        	 
+         }
+   
+   
+   %>
+  
+  
+  
+  
+  
 
 
-  <form class="form max-width-container">
+  <form class="form max-width-container" method="Post" action="servletModificarProfesor">
   
-  	<div class="form__input-container">
-      <label for="firstname">Legajo</label>
-      <input required type="number" name="firstname" id="firstname" value="1111">
-    </div>
-  
+  	
+     <input required type="hidden" name="idProfesor" id="id" value="<%=docente.getIdDocente()%>">
 
     <div class="form__input-container">
       <label for="firstname">Nombre</label>
-      <input required type="text" name="firstname" id="firstname" value="Alejandro">
+      <input required type="text" name="nombre" id="nombre" maxlength="15" value="<%=docente.getNombre()%>">
     </div>
     
     <div class="form__input-container">
       <label for="lastname">Apellido</label>
-      <input required type="text" name="lastname" id="lastname" value="Gazzo">
+      <input required type="text" name="apellido" id="apellido" maxlength="15" value="<%=docente.getApellido()%>">
     </div>
     
     <div class="form__input-container">
       <label for="lastname">Email</label>
-      <input required type="email" value="agazzo@everis.com" id="lastname">
+      <input required type="email"  id="email" name="email" maxlength="50" value="<%=docente.getEmail()%>">
     </div>
     
     
     <div class="form__input-container">
       <label for="lastname">Telefono</label>
-      <input required type="phone" value="333444555" name="lastname" id="lastname">
+      <input required type="phone"  name="telefono" id="telefono" maxlength="20" value="<%=docente.getTelefono()%>">
+    </div>
+    
+    <div class="form__input-container">
+      <label for="lastname">Nacimiento</label>
+      <input required type="date"  name="fecha" id="fecha" value="<%=docente.getFecha_Nacimiento()%>">
     </div>
     
     <div class="form__input-container">
       <label for="lastname">Direccion</label>
-      <input required type="text" value="calle 123" name="lastname" id="lastname">
+      <input required type="text" name="direccion" id="direccion" maxlength="20" value="<%=docente.getAdress()%>">
     </div>
     
     
     
     <div class="form__input-container">
       <label for="document_type">País</label>
-       <input required type="text" value="Argentina" name="lastname" id="lastname">
+       <select name="paises">
+    <%
+            
+         for(Pais pais : listaPaises)
+         {
+        	 %>
+        	    <option value=<%=pais.getIdPais()%>
+        	    
+        	    <%if(docente.getPais().getIdPais()==pais.getIdPais()){%> selected <%} %>
+        	    
+        	    >
+        	    <%=pais.getNombrePais()%></option>
+        	 <%
+         }
+     
+     
+     %>   
+          </select>
       
-     <!-- <select name="document_type" id="document_type">
-
-      </select>
-       -->
     </div>
 
     <div class="form__input-container">
       <label for="document_type">Provincia</label>
       
-      <input required type="text" value="Buenos Aires" name="lastname" id="lastname">
-      
-           <!--   <select name="document_type" id="document_type">
-
-      </select>
-      -->
+      <select name="provincias">
+    <%
+            
+         for(Provincia prov : listaProvincias)
+         {
+        	 %>
+        	    <option value=<%=prov.getIdProvincia()%>
+        	    
+        	    <%if(docente.getProvincia().getIdProvincia()==prov.getIdProvincia()){%> selected <%} %>
+        	    
+        	    ><%=prov.getNombreProvincia()%></option>
+        	 <%
+         }
+     
+     
+     %>   
+          </select>
       
     </div>
     
     <div class="form__input-container">
      <label for="document_type">Localidad</label>
-    <input required type="text" value="San Isidro" name="lastname" id="lastname">
-    <!--
+    <select name="localidades">
+    <%
+            
+         for(Localidad loc : listaLocalidades)
+         {
+        	 %>
+	        	    <option value=<%=loc.getIdLocalidad()%>
+	        	    
+	        	    <%if(docente.getLocalidad().getIdLocalidad()==loc.getIdLocalidad()){%> selected <%} %>
+        	    
+        	    ><%=loc.getNombre()%></option>
+        	 <%
+         }
      
-      <select name="document_type" id="document_type">
- -->
+     
+     %>   
       </select>
     </div>
     

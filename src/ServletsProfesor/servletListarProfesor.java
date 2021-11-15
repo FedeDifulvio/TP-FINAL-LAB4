@@ -1,4 +1,4 @@
-package Servlets;
+package ServletsProfesor;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,44 +11,42 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Dominio.Docente;
-import INegocio.INegocioDocente;
+import Helpers.Helpers;
 import Negocio.NegocioDocente;
 
-
-@WebServlet("/ServletListarProfesor")
-public class ServletListarProfesor extends HttpServlet {
+/**
+ * Servlet implementation class servletListarProfesor
+ */
+@WebServlet("/servletListarProfesor")
+public class servletListarProfesor extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    
-    public ServletListarProfesor() {
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public servletListarProfesor() {
         super();
-       
+        // TODO Auto-generated constructor stub
     }
 
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		NegocioDocente negocioDocente = new NegocioDocente();
 		ArrayList<Docente> listaDocentes = new ArrayList<Docente>(); 
 		listaDocentes = negocioDocente.listarDocentes(); 
 		
-		for(Docente d : listaDocentes) {
-			System.out.println(d.toString());
-		}
 		request.setAttribute("listaDocentes", listaDocentes);
-		RequestDispatcher rd = request.getRequestDispatcher("../VISTAS/VISTAS PROFESOR/ListarProfesores.jsp"); 
-        try {
-        	
-            rd.forward(request, response);
-        } catch (ServletException | IOException e) {
-        	
-            e.printStackTrace();
-        }
-		
+	    
+		Helpers.redireccionar("VISTAS/VISTAS PROFESOR/ListarProfesores.jsp", request, response);
 	}
 
-	
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

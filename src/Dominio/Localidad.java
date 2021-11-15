@@ -26,6 +26,12 @@ public class Localidad {
 		this.idProvincia = provincia;
 		this.nombreLocalidad = nombreLocalidad;
 	}
+	
+	public Localidad(int idLocalidad) {
+
+		this.idLocalidad = idLocalidad;
+	}
+	
 
 	public int getIdLocalidad() {
 		return idLocalidad;

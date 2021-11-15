@@ -13,27 +13,38 @@ public class NegocioDocente implements INegocioDocente{
 	public ArrayList<Docente> listarDocentes() {
 		ArrayList<Docente> listaDocentes = new ArrayList<Docente>(); 
 		IDocente daoDocente = new DaoDocente();
-		System.out.println("se cargo el negocio");
 		listaDocentes = daoDocente.listarDocentes();
 		
 		return listaDocentes;
 	}
 
 	
-	public boolean agregarDocente(Docente Docente) {
-		// TODO Auto-generated method stub
-		return false;
+	public int agregarDocente(Docente Docente) {
+		
+		IDocente daoDocente = new DaoDocente();
+		
+		int idGenerado = daoDocente.agregarDocente(Docente); 
+		
+		return idGenerado; 
 	}
 
 	
 	public boolean eliminarDocente(int idDocente) {
-		// TODO Auto-generated method stub
-		return false;
+		 
+        IDocente daoDocente = new DaoDocente();
+		
+		boolean estado = daoDocente.eliminarDocente(idDocente);
+		
+		return estado;
 	}
 
 	public boolean modificarDocente(Docente Docente) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		IDocente daoDocente = new DaoDocente();
+		
+		boolean estado = daoDocente.modificarDocente(Docente);
+		
+		return estado;
 	}
 
 }

@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDate;
 
 import Dominio.Docente;
@@ -62,17 +63,18 @@ public class DaoDocente implements IDocente {
 		return null;
 	}
 
-	public boolean agregarDocente(Docente docente) {
+	public int agregarDocente(Docente docente) { 
 		String query = "INSERT INTO docente (legajo, dni, nombre, apellido, fecha_nac, adress, id_pais, id_provincia, id_localidad, email, tel, estado) VALUES " + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	       
-		Conexion conexionSql = null; 
+		Conexion conexionSql = null;  
+		int idGenerado = 0; 
 		
 		try {
 			
 		    conexionSql = new Conexion();
 			Connection connection  = conexionSql.obtenerConexion(); 
 			
-			PreparedStatement statement = connection.prepareStatement(query);
+			PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 			statement.setString(1, docente.getLegajo());
 			statement.setString(2, docente.getDni());
 			statement.setString(3, docente.getNombre());
@@ -86,21 +88,30 @@ public class DaoDocente implements IDocente {
 			statement.setString(11, docente.getTelefono());
 			statement.setBoolean(12, docente.getEstado());
 			
+			
+			
 			if(statement.executeUpdate()==1) {
 				connection.commit();
-				return true;
+				
+				ResultSet generatedKeys = statement.getGeneratedKeys(); //devuelve el id del nuevo registro ingresado.
+				if (generatedKeys.next()) {
+			        idGenerado = generatedKeys.getInt(1);
+				}
+				
+				return idGenerado;
 			}
 				
 		} catch (SQLException e) {
 			
 			 e.printStackTrace();
+			 return idGenerado;
 		} 
 		
 		finally {
 			conexionSql.cerrarConexion();
 		}
 
-		return false;
+		return idGenerado;
 	}
 
 	public boolean eliminarDocente(int idDocente) {
@@ -134,7 +145,7 @@ public class DaoDocente implements IDocente {
 	}
 
 	public boolean modificarDocente(Docente docente) {
-		String query = "update docente set legajo = ?, dni = ?, nombre = ?,  apellido = ?,  fecha_nac = ?,  adress = ?,  id_pais = ?,  id_provincia = ?,  id_localidad = ?,  email = ?,  tel = ?,  estado = ? where id = ?";
+		String query = "update docente set nombre = ?,  apellido = ?,  fecha_nac = ?,  adress = ?,  id_pais = ?,  id_provincia = ?,  id_localidad = ?,  email = ?,  tel = ?,  estado = ? where id = ?";
 	       
 		Conexion conexionSql = null; 
 		
@@ -144,19 +155,17 @@ public class DaoDocente implements IDocente {
 			Connection connection  = conexionSql.obtenerConexion(); 
 			
 			PreparedStatement statement = connection.prepareStatement(query);
-			statement.setInt(13, docente.getIdDocente());
-			statement.setString(1, docente.getLegajo());
-			statement.setString(2, docente.getDni());
-			statement.setString(3, docente.getNombre());
-			statement.setString(4, docente.getApellido());
-			statement.setString(5, docente.getFecha_Nacimiento().toString());
-			statement.setString(6, docente.getAdress());
-			statement.setInt(7, docente.getPais().getIdPais());
-			statement.setInt(8, docente.getProvincia().getIdProvincia());
-			statement.setInt(9, docente.getLocalidad().getIdLocalidad());
-			statement.setString(10, docente.getEmail());
-			statement.setString(11, docente.getTelefono());
-			statement.setBoolean(12, docente.getEstado());
+			statement.setInt(11, docente.getIdDocente());
+			statement.setString(1, docente.getNombre());
+			statement.setString(2, docente.getApellido());
+			statement.setString(3, docente.getFecha_Nacimiento().toString());
+			statement.setString(4, docente.getAdress());
+			statement.setInt(5, docente.getPais().getIdPais());
+			statement.setInt(6, docente.getProvincia().getIdProvincia());
+			statement.setInt(7, docente.getLocalidad().getIdLocalidad());
+			statement.setString(8, docente.getEmail());
+			statement.setString(9, docente.getTelefono());
+			statement.setBoolean(10, docente.getEstado());
 			
 			if(statement.executeUpdate()==1) {
 				connection.commit();

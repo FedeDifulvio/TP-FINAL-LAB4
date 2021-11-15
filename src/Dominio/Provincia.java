@@ -30,6 +30,12 @@ public class Provincia {
 		nombreProvincia = null;
 		idPais = 0;
 	}
+	
+	public Provincia ( int id) {
+		
+		idProvincia = id;
+		
+	}
 
 
 	public Provincia(int idProvincia, String nombreProvincia, int pais) {

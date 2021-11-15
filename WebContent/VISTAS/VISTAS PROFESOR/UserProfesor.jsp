@@ -4,8 +4,8 @@
 <html>
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<link rel="stylesheet" href="../../Styles/Styles.css" />
-<link rel="stylesheet" href="../../Styles/mini-lib.css" />
+<link rel="stylesheet" href="Styles/Styles.css" />
+<link rel="stylesheet" href="Styles/mini-lib.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Profesores</title>
 </head>
@@ -18,7 +18,7 @@
   <div class="container-fluid max-width-container">
   
     <a class="navbar-brand flex-center-container" href="#">
-    	<img src="../../Assets/logo.png" />
+    	<img src="Assets/logo.png" />
     </a>
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,7 +46,7 @@
         
       </ul>
       
-      <form class="flex-evenly-container align-items-center">
+      <form class="flex-evenly-container align-items-center" method="Post" action="servletUserProfesor">
         <h5 class="user-name">Alejandro Gazzo</h5>
         <button class="btn accent" type="submit">Cerrar Sesión</button>
       </form>
@@ -55,24 +55,28 @@
   </div>
 </nav>
 
+<% int referencia = Integer.parseInt(request.getAttribute("idGenerado").toString()); %>
+
  <div class="container">
             <h1 class="table-title">Nuevo Usuario</h1>
             <div class="row justify-content-center mb-3">
                 <div class="col-md-4 mt-4" style="text-align: center;">
-                    <h3>Profesor :  <span style="color: #F5B7B1">Juan López </span></h3>
+                    <h3>Profesor :  <span style="color: #F5B7B1"> <%=request.getAttribute("nuevoUser") %> </span></h3>
                 </div>
             </div>
 
              <br/>
              <br/>
             <div class="login-form-container max-width-container full-height flex-center-container flex-column align-center-container">
-            <form class="flex-column">
+            <form class="flex-column" method="Post" action="servletUserProfesor">
+            
+                <input type="hidden" name="referencia" value="<%=referencia %>">
 				
 				<label>Usuario</label>
-				<input type="text" required>
+				<input type="text" name ="usuario" id="usuario" required>
 				  <br/>
 				<label>Contraseña</label>
-				<input type="password" required>
+				<input type="password" name ="pass" id="pass" required>
 				
 				<input type="submit" value="Asignar" class="btn accent text-white mt-4">
 			</form>

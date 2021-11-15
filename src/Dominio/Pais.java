@@ -20,6 +20,10 @@ public class Pais {
 		this.idPais = idPais;
 		this.nombrePais = nombrePais;
 	}
+	
+	public Pais(int idPais) {
+		this.idPais = idPais;
+	}
 
 	public int getIdPais() {
 		return idPais;

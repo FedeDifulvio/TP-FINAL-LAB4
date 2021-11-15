@@ -8,8 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<link rel="stylesheet" href="../../Styles/Styles.css" />
-<link rel="stylesheet" href="../../Styles/mini-lib.css" />
+<link rel="stylesheet" href="Styles/Styles.css" />
+<link rel="stylesheet" href="Styles/mini-lib.css" />
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
 
 
@@ -24,7 +24,7 @@
   <div class="container-fluid max-width-container">
   
     <a class="navbar-brand flex-center-container" href="#">
-    	<img src="../../Assets/logo.png" />
+    	<img src="Assets/logo.png" />
     </a>
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -109,8 +109,8 @@ listaDocentes = (ArrayList<Docente>)request.getAttribute("listaDocentes");
 	                            <th><%=docente.getLocalidad().getNombre() %></th>
 	                            <th><%=docente.getEmail() %></th>
 	                            <th><%=docente.getTelefono() %></th>
-	                             <th> <a href="ModificarProfesor.jsp"> <i class="fas fa-edit"></i> </a>  </th>
-	                            <th> <a href="EliminarProfesor.jsp" ><i class="fas fa-trash-alt"></i></a> </th>
+	                             <th> <a href="servletModificarProfesor?id=<%=docente.getIdDocente()%>"> <i class="fas fa-edit"></i> </a>  </th>
+	                            <th> <a href="servletEliminarProfesor?id=<%=docente.getIdDocente()%>" ><i class="fas fa-trash-alt"></i></a> </th>
 	
 							</tr>
 						<%	
@@ -121,7 +121,7 @@ listaDocentes = (ArrayList<Docente>)request.getAttribute("listaDocentes");
 		
 		<form>
 			<!-- <input class="btn" type="submit" value="Agregar">  -->
-			  <a class="form__btn-sumbit accent" type="submit" href="AddProfesor.jsp">Agregar</a>
+			  <a class="form__btn-sumbit accent" type="submit" href="servletAgregarProfesor">Agregar</a>
 		</form>
 		</div>
 	
