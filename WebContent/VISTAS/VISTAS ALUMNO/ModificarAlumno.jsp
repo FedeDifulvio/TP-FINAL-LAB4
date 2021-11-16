@@ -194,7 +194,7 @@
     
     <div class="form__input-container">
      <label for="document_type">Localidad</label>
-    <select name="localidades" disabled>
+    <select name="localidades">
     <%
             
          for(Localidad loc : listaLocalidades)
