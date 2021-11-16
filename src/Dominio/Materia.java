@@ -1,6 +1,10 @@
 package Dominio;
 
 public class Materia {
+	@Override
+	public String toString() {
+		return "Materia [idMateria=" + idMateria + ", nombreMateria=" + nombreMateria + "]";
+	}
 	private int idMateria;
 	private String nombreMateria;
 	private boolean estado;

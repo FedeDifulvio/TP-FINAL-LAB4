@@ -19,12 +19,12 @@
 
 <main class="main-container">
 
-  <nav class="navbar navbar-expand-lg navbar-dark full-width flex-center-container"> 
+ <nav class="navbar navbar-expand-lg navbar-dark full-width flex-center-container"> 
   
   <div class="container-fluid max-width-container">
   
     <a class="navbar-brand flex-center-container" href="#">
-    	<img src="Assets/logo.png" />
+    	<img src="./Assets/logo.png" />
     </a>
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,19 +35,23 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="../VISTAS PROFESOR/ListarProfesores.jsp">Profesores</a>
+          <a class="nav-link active" aria-current="page" href="VISTAS/HOME.jsp" id="listarProfesores" name="listarProfesores">Home</a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="servletListarProfesor" id="listarProfesores" name="listarProfesores">Profesores</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="../VISTAS ALUMNO/ListarAlumnos.jsp">Alumnos</a>
+          <a class="nav-link" href="servletListarAlumnos">Alumnos</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link"  href="../CURSOS/TodosLosCursos.jsp">Cursos</a>
+          <a class="nav-link"  href="VISTAS/CURSOS/TodosLosCursos.jsp">Cursos</a>
         </li>
         
          <li class="nav-item">
-          <a class="nav-link" class="nav-link"  href="../VISTAS USUARIO/ListarUsuarios.jsp">Usuarios</a>
+          <a class="nav-link" class="nav-link"  href="servletListarUsarios">Usuarios</a>
         </li>
         
       </ul>

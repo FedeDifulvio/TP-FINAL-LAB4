@@ -9,6 +9,7 @@ import Dao.DaoCalificaciones;
 import Dao.DaoCurso;
 import Dao.DaoDocente;
 import Dao.DaoLocalidad;
+import Dao.DaoMateria;
 import Dao.DaoPais;
 import Dao.DaoProvincias;
 import Dao.DaoUsuario;
@@ -27,7 +28,16 @@ import IDao.IDocente;
 public class Prueba {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		
+		DaoMateria daoMat = new DaoMateria();
+		ArrayList<Materia> listMaterias = daoMat.listarMaterias();
+		
+		for(Materia materia : listMaterias) {
+			System.out.println(materia.toString());
+			
+		}
+		
 //		DaoLocalidad dao = new DaoLocalidad();
 //		DaoProvincias daop = new DaoProvincias();
 //		ArrayList<Localidad> localidades =  dao.listarLocalidades();

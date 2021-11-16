@@ -42,6 +42,10 @@
           <a class="nav-link"  href="CURSOS/TodosLosCursos.jsp">Cursos</a>
         </li>
         
+        <li class="nav-item">
+          <a class="nav-link"  href="CURSOS/MisCursos.jsp">Mis cursos</a>
+        </li>
+        
          <li class="nav-item">
           <a class="nav-link" class="nav-link"  href="../servletListarUsarios">Usuarios</a>
         </li>
@@ -72,11 +76,11 @@
 		<div class="dashboard-card-container full-width responsive-container flex-center-container">
 		
 			<div class="dashboard-card">
-				<a class="dashboard-card-banner" href="VISTAS PROFESOR/ListarProfesores.jsp">Profesores</a>	
+				<a class="dashboard-card-banner" href="../servletListarProfesor">Profesores</a>	
 			</div>
 			
 			<div class="dashboard-card">
-				<a class="dashboard-card-banner" href="VISTAS ALUMNO/ListarAlumnos.jsp">Alumnos</a>	
+				<a class="dashboard-card-banner" href="../servletListarAlumnos">Alumnos</a>	
 			</div>
 			
 			<div class="dashboard-card">
@@ -84,7 +88,7 @@
 			</div>
 			
 			<div class="dashboard-card">
-				<a class="dashboard-card-banner" href="VISTAS USUARIO/ListarUsuarios.jsp">Usuarios</a>	
+				<a class="dashboard-card-banner" href="../servletListarUsarios">Usuarios</a>	
 			</div>
 		
 		</div>
