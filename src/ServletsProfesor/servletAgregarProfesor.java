@@ -14,6 +14,7 @@ import Dominio.Localidad;
 import Dominio.Pais;
 import Dominio.Provincia;
 import Helpers.Helpers;
+import INegocio.INegocioDocente;
 import Negocio.NegocioDocente;
 
 /**
@@ -75,12 +76,17 @@ public class servletAgregarProfesor extends HttpServlet {
 		NegocioDocente negocioDocente = new NegocioDocente();
 		
 		 int idGenerado = negocioDocente.agregarDocente(docenteAdd);
-		 System.out.println(idGenerado);
-		 request.setAttribute("idGenerado", idGenerado);
-		 request.setAttribute("nuevoUser", docenteAdd.getNombre() + " " + docenteAdd.getApellido());
-		
+		 if(idGenerado>0) {
+			 request.setAttribute("idGenerado", idGenerado);
+			 request.setAttribute("nuevoUser", docenteAdd.getNombre() + " " + docenteAdd.getApellido());
+						 
+			Helpers.redireccionar("servletUserProfesor?id=1", request, response); 	
+		 }
+		 else {
+				request.setAttribute("error", "no se pudo agregar el docente");
+				Helpers.redireccionar("ServletError", request, response);
+		 }
 		 
-		Helpers.redireccionar("servletUserProfesor?id=1", request, response); 
 			
 	}
 

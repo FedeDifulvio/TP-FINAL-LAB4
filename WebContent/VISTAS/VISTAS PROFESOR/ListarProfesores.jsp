@@ -62,7 +62,8 @@
   
 </nav>
 <!-- Fin navbar -->
-<% ArrayList<Docente> listaDocentes = new ArrayList<Docente>();
+<% 
+ArrayList<Docente> listaDocentes = new ArrayList<Docente>();
 if(request.getAttribute("listaDocentes")!=null)
 {
 listaDocentes = (ArrayList<Docente>)request.getAttribute("listaDocentes");
@@ -108,7 +109,7 @@ listaDocentes = (ArrayList<Docente>)request.getAttribute("listaDocentes");
 	                            <th><%=docente.getProvincia().getNombreProvincia() %></th>
 	                            <th><%=docente.getLocalidad().getNombre() %></th>
 	                            <th><%=docente.getEmail() %></th>
-	                            <th><%=docente.getTelefono() %></th>
+	                            <th><%=docente.getTelefono() %></th>	                         
 	                             <th> <a href="servletModificarProfesor?id=<%=docente.getIdDocente()%>"> <i class="fas fa-edit"></i> </a>  </th>
 	                            <th> <a href="servletEliminarProfesor?id=<%=docente.getIdDocente()%>" ><i class="fas fa-trash-alt"></i></a> </th>
 	

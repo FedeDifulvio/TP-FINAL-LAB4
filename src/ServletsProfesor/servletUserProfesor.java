@@ -11,7 +11,9 @@ import Dominio.Docente;
 import Dominio.TipoUsuario;
 import Dominio.Usuario;
 import Helpers.Helpers;
+import INegocio.INegocioDocente;
 import INegocio.INegocioUsuario;
+import Negocio.NegocioDocente;
 import Negocio.NegocioUsuario;
 
 /**
@@ -34,7 +36,7 @@ public class servletUserProfesor extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		 System.out.println("get");
+		 
 		
 		 int id = Integer.parseInt(request.getAttribute("idGenerado").toString()); 
 		 
@@ -75,9 +77,19 @@ public class servletUserProfesor extends HttpServlet {
 		user.setEstado(true);
 		
 		boolean estado = NegUser.agregarUsuario(user); 
-		
-		Helpers.redireccionar("servletListarProfesor", request, response); 
-		
+		if(estado) {
+			request.setAttribute("modal", 1); 
+			Helpers.redireccionar("servletListarProfesor", request, response); 			
+		}
+		else {
+			INegocioDocente NegDoc = new NegocioDocente();
+			NegDoc.eliminarDocente(referencia);
+			request.setAttribute("error", "no se pudo agregar el usuario");
+			Helpers.redireccionar("ServletError", request, response);
+		}
+			
+	
+
 	}
 
 }

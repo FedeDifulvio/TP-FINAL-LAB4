@@ -33,6 +33,7 @@ public class servletListarProfesor extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		NegocioDocente negocioDocente = new NegocioDocente();
 		ArrayList<Docente> listaDocentes = new ArrayList<Docente>(); 
 		listaDocentes = negocioDocente.listarDocentes(); 
