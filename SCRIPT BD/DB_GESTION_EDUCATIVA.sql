@@ -189,12 +189,9 @@ INSERT INTO alumno (legajo, dni, nombre, apellido, fecha_nac, adress, id_pais, i
 ("1014","9018","Artorias","Sun","1969-09-12","Carlos 78",3,1,16,"asun@yahoo.com","123912",1),
 ("1015","9019","Dante","Smith","2001-11-11","Centenario 15666",2,7,8,"dsmith@yahoo.com","981231",1);
 
-select a.legajo, a.nombre, a.apellido, p.nombre as "pais", pr.nombre as "provincia", l.nombre as "localidad" 
-from alumno as a
-inner join pais as p on a.id_pais = p.id
-inner join provincia as pr on a.id_provincia = pr.id
-inner join localidad as l on a.id_localidad = l.id
-order by a.legajo;
+insert into tipo_usuario (nombre_tipo) values ("Admin"), ("Profesor");
+
+insert into usuario (user_name, pass, tipo, token, estado) values ("admin", "admin", 1, 1, 1);
 
 
 

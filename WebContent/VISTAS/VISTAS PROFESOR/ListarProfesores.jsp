@@ -109,8 +109,13 @@ listaDocentes = (ArrayList<Docente>)request.getAttribute("listaDocentes");
 	                            <th><%=docente.getProvincia().getNombreProvincia() %></th>
 	                            <th><%=docente.getLocalidad().getNombre() %></th>
 	                            <th><%=docente.getEmail() %></th>
+<<<<<<< Updated upstream
 	                            <th><%=docente.getTelefono() %></th>	                         
 	                             <th> <a href="servletModificarProfesor?id=<%=docente.getIdDocente()%>"> <i class="fas fa-edit"></i> </a>  </th>
+=======
+	                            <th><%=docente.getTelefono() %></th>
+	                            <th> <a href="servletModificarProfesor?id=<%=docente.getIdDocente()%>"> <i class="fas fa-edit"></i> </a>  </th>
+>>>>>>> Stashed changes
 	                            <th> <a href="servletEliminarProfesor?id=<%=docente.getIdDocente()%>" ><i class="fas fa-trash-alt"></i></a> </th>
 	
 							</tr>

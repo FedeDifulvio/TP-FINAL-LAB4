@@ -2,7 +2,9 @@ package Negocio;
 
 import java.util.ArrayList;
 
+import Dao.DaoAlumno;
 import Dao.DaoUsuario;
+import Dominio.Alumno;
 import Dominio.Usuario;
 import IDao.IUsuario;
 import INegocio.INegocioUsuario;
@@ -11,8 +13,10 @@ public class NegocioUsuario implements INegocioUsuario {
 
 	@Override
 	public ArrayList<Usuario> listarUsuarios() {
-		// TODO Auto-generated method stub
-		return null;
+		DaoUsuario daoUsuario = new DaoUsuario();
+		ArrayList<Usuario> Usuarios = new ArrayList<Usuario>();
+		Usuarios = daoUsuario.listarUsuarios();
+		return Usuarios;
 	}
 
 	@Override

@@ -139,7 +139,7 @@ public boolean agregarAlumno(Alumno alumno) {
 
 	
 	public boolean modificarAlumno(Alumno alumno) {
-		String query = "update alumno set legajo = ?, dni = ?, nombre = ?,  apellido = ?,  fecha_nac = ?,  adress = ?,  id_pais = ?,  id_provincia = ?,  id_localidad = ?,  email = ?,  tel = ?,  estado = ? where id = ?";
+		String query = "update alumno set nombre = ?,  apellido = ?,  fecha_nac = ?,  adress = ?,  id_pais = ?,  id_provincia = ?,  id_localidad = ?,  email = ?,  tel = ?,  estado = ? where id = ?";
 	       
 		Conexion conexionSql = null; 
 		
@@ -149,19 +149,17 @@ public boolean agregarAlumno(Alumno alumno) {
 			Connection connection  = conexionSql.obtenerConexion(); 
 			
 			PreparedStatement statement = connection.prepareStatement(query);
-			statement.setInt(13, alumno.getIdAlumno());
-			statement.setString(1, alumno.getLegajo());
-			statement.setString(2, alumno.getDni());
-			statement.setString(3, alumno.getNombre());
-			statement.setString(4, alumno.getApellido());
-			statement.setString(5, alumno.getFecha_Nacimiento().toString());
-			statement.setString(6, alumno.getAdress());
-			statement.setInt(7, alumno.getPais().getIdPais());
-			statement.setInt(8, alumno.getProvincia().getIdProvincia());
-			statement.setInt(9, alumno.getLocalidad().getIdLocalidad());
-			statement.setString(10, alumno.getEmail());
-			statement.setString(11, alumno.getTelefono());
-			statement.setBoolean(12, alumno.getEstado());
+			statement.setInt(11, alumno.getIdAlumno());
+			statement.setString(1, alumno.getNombre());
+			statement.setString(2, alumno.getApellido());
+			statement.setString(3, alumno.getFecha_Nacimiento().toString());
+			statement.setString(4, alumno.getAdress());
+			statement.setInt(5, alumno.getPais().getIdPais());
+			statement.setInt(6, alumno.getProvincia().getIdProvincia());
+			statement.setInt(7, alumno.getLocalidad().getIdLocalidad());
+			statement.setString(8, alumno.getEmail());
+			statement.setString(9, alumno.getTelefono());
+			statement.setBoolean(10, alumno.getEstado());
 			
 			if(statement.executeUpdate()==1) {
 				connection.commit();

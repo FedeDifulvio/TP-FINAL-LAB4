@@ -21,6 +21,10 @@ private Connection connection;
 	{   
 		Class.forName("com.mysql.jdbc.Driver"); 
 		this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_gestion_educativa","root", passRoot);
+<<<<<<< Updated upstream
+=======
+		
+>>>>>>> Stashed changes
 		this.connection.setAutoCommit(false); 
 	}
 	catch(Exception e)

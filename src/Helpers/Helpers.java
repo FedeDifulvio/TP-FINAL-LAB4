@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Dominio.Alumno;
 import Dominio.Docente;
 import Dominio.Localidad;
 import Dominio.Pais;
@@ -15,6 +16,7 @@ import Dominio.Provincia;
 import INegocio.INegocioLocalidad;
 import INegocio.INegocioPais;
 import INegocio.INegocioProvincia;
+import Negocio.NegocioAlumno;
 import Negocio.NegocioDocente;
 import Negocio.NegocioLocalidad;
 import Negocio.NegocioPais;
@@ -48,6 +50,21 @@ public class Helpers {
 		request.setAttribute("localidades", localidades);
 		
 	}
+    
+    public static Alumno encontrarAlumno(int id) {
+    	
+    	NegocioAlumno negocioAlumno = new NegocioAlumno();
+		ArrayList<Alumno> listaAlumnos = negocioAlumno.listarAlumnos(); 
+		
+		for(Alumno Alumno : listaAlumnos)
+		{
+			if(Alumno.getIdAlumno()==id) {
+				return Alumno;
+			}
+		}
+		return null;
+    	
+    }
     
     public static Docente encontrarDocente(int id) {
     	

@@ -35,7 +35,7 @@
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="VISTAS ALUMNO/ListarAlumnos.jsp">Alumnos</a>
+          <a class="nav-link" href="../servletListarAlumnos">Alumnos</a>
         </li>
         
         <li class="nav-item">
@@ -43,7 +43,7 @@
         </li>
         
          <li class="nav-item">
-          <a class="nav-link" class="nav-link"  href="VISTAS USUARIO/ListarUsuarios.jsp">Usuarios</a>
+          <a class="nav-link" class="nav-link"  href="../servletListarUsarios">Usuarios</a>
         </li>
         
       </ul>

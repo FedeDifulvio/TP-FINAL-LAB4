@@ -7,6 +7,7 @@ public class Usuario {
 		private TipoUsuario tipoUsuario;
 		private int referencia;
 		private boolean estado;
+		
 	
 		public Usuario() {
 			super();

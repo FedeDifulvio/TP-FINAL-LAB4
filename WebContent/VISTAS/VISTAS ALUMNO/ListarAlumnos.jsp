@@ -1,13 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import ="java.util.ArrayList" %>
+<%@page import ="Dominio.Alumno" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<link rel="stylesheet" href="../../Styles/Styles.css" />
-<link rel="stylesheet" href="../../Styles/mini-lib.css" />
+<link rel="stylesheet" href="Styles/Styles.css" />
+<link rel="stylesheet" href="Styles/mini-lib.css" />
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
 
 
@@ -22,7 +24,7 @@
   <div class="container-fluid max-width-container">
   
     <a class="navbar-brand flex-center-container" href="#">
-    	<img src="../../Assets/logo.png" />
+    	<img src="Assets/logo.png" />
     </a>
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,6 +63,13 @@
 </nav>
 <!-- Fin navbar -->
 
+<% ArrayList<Alumno> listaAlumnos = new ArrayList<Alumno>();
+if(request.getAttribute("listaAlumnos")!=null)
+{
+listaAlumnos = (ArrayList<Alumno>)request.getAttribute("listaAlumnos");
+}
+%>
+
 
 	<div class="full-width flex-center-container">
 		
@@ -71,7 +80,8 @@
 			<table id="table-1" class="display table table-light table-hover">
 	                    <thead class="table-dark">
 	                        <tr>
-	                            <th>DNI</th>
+	                        	<th>DNI</th>
+	                            <th>Legajo</th>
 	                            <th scope="col">Nombre</th>                        
 	                            <th>Apellido</th>
 	                            <th>Fecha de nacimiento</th>
@@ -86,32 +96,33 @@
 	                        </tr>
 	                   </thead>
 	                   <tbody>
-							<tr>
-								<th>40.420.420</th>
-	                            <th scope="col">Alejandro</th>                        
-	                            <th>Gazzo</th>
-	                            <th>5/11/2021</th>
-	                            <th>Las Canarias 420</th>
-	                            <th>Angola</th>
-	                            <th>Baires</th>
-	                            <th>SanFer</th>
-	                            <th>kajslodas</th>
-	                            <th>11 2222 3333</th>
-	                            <th> <a href="ModificarAlumno.jsp"> <i class="fas fa-edit"></i> </a>  </th>
-	                            <th> <a href="EliminarAlumno.jsp" ><i class="fas fa-trash-alt"></i></a> </th>
-	
-							</tr>
-	                   </tbody>
+                       <% for (Alumno alumno : listaAlumnos){
+                           %>
+                            <tr>
+                                <th><%=alumno.getDni() %></th>
+                                <th><%=alumno.getLegajo() %></th>
+                                <th><%=alumno.getNombre() %></th>
+                                <th><%=alumno.getApellido() %></th>
+                                <th><%=alumno.getFecha_Nacimiento() %></th>
+                                <th><%=alumno.getAdress() %></th>
+                                <th><%=alumno.getPais().getNombrePais() %></th>
+                                <th><%=alumno.getProvincia().getNombreProvincia() %></th>
+                                <th><%=alumno.getLocalidad().getNombre() %></th>
+                                <th><%=alumno.getEmail() %></th>
+                                <th><%=alumno.getTelefono() %></th>
+                                 <th> <a href="servletModificarAlumno?id=<%=alumno.getIdAlumno()%>"> <i class="fas fa-edit"></i> </a>  </th>
+                                <th> <a href="servletEliminarAlumno?id=<%=alumno.getIdAlumno()%>" ><i class="fas fa-trash-alt"></i></a> </th>
+                            </tr>
+                        <%
+                        }
+                        %>
+                       </tbody>
 	       </table>
 		
 		<form>
-		
-		   <a class="btn accent" href= "AddAlumno.jsp">Agregar</a>
-		
-			<!--<input class="btn" type="submit" value="Agregar"> -->
+		  <a class="form__btn-sumbit accent" type="submit" href="servletAgregarAlumno">Agregar</a>
 		</form> 
 		</div>
-	
 	</div>
 
 
