@@ -20,25 +20,48 @@ public class NegocioUsuario implements INegocioUsuario {
 	}
 
 	@Override
-	public boolean agregarUsuario(Usuario usuario) {
+	public int agregarUsuario(Usuario usuario) {
+		
+		if(validarUserName(usuario.getUser_Name())) return -1;
 		
 		IUsuario NegUser = new DaoUsuario();
 		
-		boolean estado = NegUser.agregarUsuario(usuario); 
+		int estado = NegUser.agregarUsuario(usuario)? 1:0; 
 		
 		return estado;
 	}
 
 	@Override
 	public boolean eliminarUsuario(int idUsuario) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		IUsuario NegUser = new DaoUsuario();
+		
+		boolean estado = NegUser.eliminarUsuario(idUsuario); 
+		
+		return estado;
 	}
 
 	@Override
 	public boolean modificarUsuario(Usuario usuario) {
-		// TODO Auto-generated method stub
-		return false;
+		
+        IUsuario NegUser = new DaoUsuario();
+		
+		boolean estado = NegUser.modificarUsuario(usuario); 
+		
+		return estado;
 	}
+	
+	 public boolean validarUserName( String username) {
+			
+			ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+			usuarios = listarUsuarios();
+			for(Usuario usuario: usuarios) {
+				 
+				 if(usuario.getUser_Name().equals(username)) {
+					 return true;
+				 }
+			}
+		 	 return false; 
+		  }
 
 }

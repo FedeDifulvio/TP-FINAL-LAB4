@@ -59,7 +59,16 @@ public class servletEliminarAlumno extends HttpServlet {
 
         boolean estado = negocioAlumno.eliminarAlumno(id); 
 
-        Helpers.redireccionar("servletListarAlumnos", request, response);
+        if(estado) {
+        	request.setAttribute("action", "Se eliminó el alumno correctamente");
+	         Helpers.redireccionar("servletListarAlumnos", request, response); 
+        }
+        
+        else {
+        	request.setAttribute("error", "Error al eliminar al alumno");
+			Helpers.redireccionar("ServletError", request, response);
+        }
+
 	}
 
 }

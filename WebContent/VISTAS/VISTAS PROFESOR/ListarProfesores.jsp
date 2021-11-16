@@ -31,8 +31,14 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     
+    
+    
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="VISTAS/HOME.jsp">Home</a>
+        </li>
       
          <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="../VISTAS PROFESOR/ListarProfesores.jsp">Profesores</a>
@@ -62,6 +68,40 @@
   
 </nav>
 <!-- Fin navbar -->
+
+<!-- Modal -->
+
+
+<%
+  if(request.getAttribute("action")!=null){
+	  
+	  %>
+	  
+	  
+		  <div class="modal fade show mt-5" id="modal" style="display:block;" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" style="color:green" id="exampleModalLabel">Success!</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body" style="color:black">
+	         <%=request.getAttribute("action") %>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" id="btnCerrar" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	 
+	  <% 
+  }
+
+%>
+
+
+
 <% 
 ArrayList<Docente> listaDocentes = new ArrayList<Docente>();
 if(request.getAttribute("listaDocentes")!=null)
@@ -109,13 +149,8 @@ listaDocentes = (ArrayList<Docente>)request.getAttribute("listaDocentes");
 	                            <th><%=docente.getProvincia().getNombreProvincia() %></th>
 	                            <th><%=docente.getLocalidad().getNombre() %></th>
 	                            <th><%=docente.getEmail() %></th>
-<<<<<<< Updated upstream
 	                            <th><%=docente.getTelefono() %></th>	                         
 	                             <th> <a href="servletModificarProfesor?id=<%=docente.getIdDocente()%>"> <i class="fas fa-edit"></i> </a>  </th>
-=======
-	                            <th><%=docente.getTelefono() %></th>
-	                            <th> <a href="servletModificarProfesor?id=<%=docente.getIdDocente()%>"> <i class="fas fa-edit"></i> </a>  </th>
->>>>>>> Stashed changes
 	                            <th> <a href="servletEliminarProfesor?id=<%=docente.getIdDocente()%>" ><i class="fas fa-trash-alt"></i></a> </th>
 	
 							</tr>
@@ -154,6 +189,14 @@ listaDocentes = (ArrayList<Docente>)request.getAttribute("listaDocentes");
         });
     } );
     </script>
+    
+ <script>
+
+$('#btnCerrar').click(function(){ 
+   $('#modal').hide();
+});
+
+</script>
  
  
  

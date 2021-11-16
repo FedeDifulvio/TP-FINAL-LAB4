@@ -21,6 +21,8 @@ public class NegocioDocente implements INegocioDocente{
 	
 	public int agregarDocente(Docente Docente) {
 		
+		if(validarDNILegajoProf(Docente)) return -1;
+		
 		IDocente daoDocente = new DaoDocente();
 		
 		int idGenerado = daoDocente.agregarDocente(Docente); 
@@ -46,5 +48,17 @@ public class NegocioDocente implements INegocioDocente{
 		
 		return estado;
 	}
+	
+	 public boolean validarDNILegajoProf(Docente docente) {
+			
+			ArrayList<Docente> docentes = new ArrayList<Docente>();
+			docentes = listarDocentes();
+			for(Docente doc : docentes) {
+				 if(doc.getDni().equalsIgnoreCase(docente.getDni()) || doc.getLegajo().equalsIgnoreCase(docente.getLegajo())) {
+					 return true;
+				 }
+			}
+		 	 return false; 
+		  }
 
 }

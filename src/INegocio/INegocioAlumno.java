@@ -6,7 +6,7 @@ import Dominio.Alumno;
 
 public interface INegocioAlumno {
 	public ArrayList<Alumno> listarAlumnos();
-	public boolean agregarAlumno(Alumno alumno);
+	public int agregarAlumno(Alumno alumno);
 	public boolean eliminarAlumno(int idAlumno);
 	public boolean modificarAlumno(Alumno alumno);
 }

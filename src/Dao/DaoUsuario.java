@@ -94,7 +94,7 @@ public class DaoUsuario implements IUsuario {
 	
 	public boolean modificarUsuario(Usuario usuario) {
 		
-		String query = "UPDATE usuario set user_name = ?, pass = ?, tipo = ?, token = ?, estado = ? where id = ?";
+		String query = "UPDATE usuario set user_name = ?, pass = ? where id = ?";
 	       
 		Conexion conexionSql = null; 
 		
@@ -106,10 +106,7 @@ public class DaoUsuario implements IUsuario {
 			PreparedStatement statement = connection.prepareStatement(query);
 			statement.setString(1, usuario.getUser_Name());
 			statement.setString(2, usuario.getPass());
-			statement.setInt(3, usuario.getTipoUsuario().getIdTipoUsuario());
-			statement.setInt(4, usuario.getReferencia());
-			statement.setBoolean(5, usuario.getEstado());
-			statement.setInt(6, usuario.getIdUsuario());
+			statement.setInt(3, usuario.getIdUsuario());
 			
 			if(statement.executeUpdate()==1) {
 				connection.commit();

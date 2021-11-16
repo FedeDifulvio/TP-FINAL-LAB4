@@ -56,22 +56,38 @@
 </nav>
 
 <!-- Modal -->
-<div class="modal fade show" id="modal" style="display:block;" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="false">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Succes</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Se Agrego el Docente con exito.
-      </div>
-      <div class="modal-footer">
-        <button type="button" id="btnCerrar" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
+<%
+  if(request.getAttribute("errorUserName")==null){
+	  
+	  %>
+	  
+	  
+		  <div class="modal fade show mt-5" id="modal" style="display:block;" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" style="color:green" id="exampleModalLabel">Success!</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body" style="color:black">
+	         <%=request.getAttribute("action") %>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" id="btnCerrar" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	 
+	  <% 
+  }
+
+  else{
+	  
+	  %><h1 style ="color:red"> USER NAME NO DISPONIBLE </h1><%
+  }
+
+%>
 
 <% int referencia = Integer.parseInt(request.getAttribute("idGenerado").toString()); %>
 

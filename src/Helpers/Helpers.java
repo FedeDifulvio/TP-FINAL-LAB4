@@ -13,6 +13,7 @@ import Dominio.Docente;
 import Dominio.Localidad;
 import Dominio.Pais;
 import Dominio.Provincia;
+import Dominio.Usuario;
 import INegocio.INegocioLocalidad;
 import INegocio.INegocioPais;
 import INegocio.INegocioProvincia;
@@ -21,6 +22,7 @@ import Negocio.NegocioDocente;
 import Negocio.NegocioLocalidad;
 import Negocio.NegocioPais;
 import Negocio.NegocioProvincia;
+import Negocio.NegocioUsuario;
 
 public class Helpers {
     
@@ -79,7 +81,24 @@ public class Helpers {
 		}
 		return null;
     	
+    } 
+    
+   public static Usuario encontrarUsuario(int id) {
+    	
+    	NegocioUsuario negocioUsuario = new NegocioUsuario();
+		ArrayList<Usuario> listaUsuarios= negocioUsuario.listarUsuarios(); 
+		
+		for(Usuario usuario : listaUsuarios)
+		{
+			if(usuario.getIdUsuario()==id) {
+				return usuario; 
+			}
+		}
+		return null;
+    	
     }
+    
+    
     
     
     public static void redireccionar(String direccion, HttpServletRequest request,  HttpServletResponse response) {

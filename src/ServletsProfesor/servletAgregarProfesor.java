@@ -79,13 +79,25 @@ public class servletAgregarProfesor extends HttpServlet {
 		 if(idGenerado>0) {
 			 request.setAttribute("idGenerado", idGenerado);
 			 request.setAttribute("nuevoUser", docenteAdd.getNombre() + " " + docenteAdd.getApellido());
-						 
+			
+			request.setAttribute("action", "Se agregó el profesor correctamente correctamente");
 			Helpers.redireccionar("servletUserProfesor?id=1", request, response); 	
 		 }
-		 else {
-				request.setAttribute("error", "no se pudo agregar el docente");
-				Helpers.redireccionar("ServletError", request, response);
+		 else 
+		 {
+			 if(idGenerado == -1) 
+			 {
+				 request.setAttribute("error", " ERROR: Legajo o DNI repetido");
+				
+			 }
+			 else {
+					request.setAttribute("error", "ERROR: no se pudo agregar el docente");
+					
+			 }
+			  
+			 Helpers.redireccionar("ServletError", request, response);
 		 }
+		
 		 
 			
 	}

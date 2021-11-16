@@ -14,16 +14,16 @@ import INegocio.INegocioUsuario;
 import Negocio.NegocioUsuario;
 
 /**
- * Servlet implementation class servletEliminarUsuario
+ * Servlet implementation class servletModificarUsuario
  */
-@WebServlet("/servletEliminarUsuario")
-public class servletEliminarUsuario extends HttpServlet {
+@WebServlet("/servletModificarUsuario")
+public class servletModificarUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public servletEliminarUsuario() {
+    public servletModificarUsuario() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,40 +32,48 @@ public class servletEliminarUsuario extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+       
 		int id = Integer.parseInt(request.getParameter("id")); 
 		
-		Usuario usuarioEliminar = new Usuario();
+		Usuario usuarioModificar = new Usuario();
 		
-		usuarioEliminar = Helpers.encontrarUsuario(id); 
+		usuarioModificar = Helpers.encontrarUsuario(id); 
 		
-		Docente profeUsuario = Helpers.encontrarDocente(usuarioEliminar.getReferencia());
+		Docente profeUsuario = Helpers.encontrarDocente(usuarioModificar.getReferencia());
 	
-		request.setAttribute("usuarioEliminar", usuarioEliminar);
+		request.setAttribute("usuarioModificar", usuarioModificar);
 		request.setAttribute("profeUsuario", profeUsuario);
 		
-		Helpers.redireccionar("VISTAS/VISTAS USUARIO/EliminarUsuario.jsp", request, response);
+		Helpers.redireccionar("VISTAS/VISTAS USUARIO/ModificarUsuario.jsp", request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	   
+		Usuario usuarioModificar = new Usuario();
 		
-		int id = Integer.parseInt(request.getParameter("idUsuario")); 
+		usuarioModificar.setIdUsuario(Integer.parseInt(request.getParameter("idUsuario").toString())); 
+		usuarioModificar.setUser_Name(request.getParameter("user").toString());
+		usuarioModificar.setPass(request.getParameter("pass").toString());
 		
-		INegocioUsuario NegUser = new NegocioUsuario(); 
+        NegocioUsuario NegUser = new NegocioUsuario(); 
 		
-		boolean estado = NegUser.eliminarUsuario(id); 
+		boolean estado = NegUser.modificarUsuario(usuarioModificar);  
 		
 		if(estado) {
-        	request.setAttribute("action", "Se eliminó el usuario correctamente");
+        	request.setAttribute("action", "Se modificó el usuario correctamente");
 	         Helpers.redireccionar("servletListarUsarios", request, response); 
         }
         
         else {
-        	request.setAttribute("error", "Error al eliminar el usuario");
+        	request.setAttribute("error", "Error al modificar el usuario");
 			Helpers.redireccionar("ServletError", request, response);
         }
+		
+		
+		
 	}
 
 }

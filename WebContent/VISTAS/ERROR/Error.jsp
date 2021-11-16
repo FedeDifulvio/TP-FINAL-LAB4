@@ -60,13 +60,23 @@
 <!-- Fin navbar -->
 <% String error = request.getAttribute("error").toString();  %>
 
-<div class="full-width flex-center-container">
+<div class="container">
+
+<div class="row justify-content-center mt-5 mb-3">
+                <div class="col-md-4 mt-4">
+                  <h1><%= error %></h1>
+                </div>
+            </div>
+
 	
-	<div class="max-width-container flex-center-container full-width">
-		
-		<h1><%= error %></h1>
-		<a href="VISTAS/HOME.jsp" class="btn btn-danger">Continuar</a>
+	<div class=" row justify-content-center mb-3">
+	    <div class="col-md-3 mt-4 justify-content-center">
+	      <a href="VISTAS/HOME.jsp" class="btn btn-danger">Continuar</a>
+	    </div>
 	</div>
+		
+		
+	
 
 </div>
 

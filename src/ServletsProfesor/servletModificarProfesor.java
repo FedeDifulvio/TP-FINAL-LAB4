@@ -87,9 +87,18 @@ public class servletModificarProfesor extends HttpServlet {
 		
 		NegocioDocente negocioDocente = new NegocioDocente();
 		
-		negocioDocente.modificarDocente(docenteMod); 
+		 boolean estado = negocioDocente.modificarDocente(docenteMod); 
+		 
+		 if(estado) {
+			 request.setAttribute("action", "Se modificó el profesor correctamente");
+			 Helpers.redireccionar("servletListarProfesor", request, response); 
+		 }
+		 else {
+			 request.setAttribute("error", "no se pudo modificar el docente");
+				Helpers.redireccionar("ServletError", request, response);
+		 }
 		
-		Helpers.redireccionar("servletListarProfesor", request, response); 
+		
 		
 		
 	}

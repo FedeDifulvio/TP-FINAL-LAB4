@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import Dao.DaoAlumno;
 import Dominio.Alumno;
+import Dominio.Docente;
 import INegocio.INegocioAlumno;
 
 public class NegocioAlumno implements INegocioAlumno{
@@ -19,9 +20,10 @@ public class NegocioAlumno implements INegocioAlumno{
 	}
 
 	@Override
-	public boolean agregarAlumno(Alumno alumno) {
+	public int agregarAlumno(Alumno alumno) {
+		if(validarDNILegajoAlum(alumno)) return -1;
 		DaoAlumno daoalumno = new DaoAlumno();
-		boolean estado = daoalumno.agregarAlumno(alumno);
+		int estado = daoalumno.agregarAlumno(alumno)? 1 : 0;
 		return estado;
 	}
 
@@ -38,5 +40,20 @@ public class NegocioAlumno implements INegocioAlumno{
 		boolean estado = daoalumno.modificarAlumno(alumno);
 		return estado;
 	}
+	
+	
+	 public boolean validarDNILegajoAlum(Alumno alumno) {
+			
+			ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
+			alumnos = listarAlumnos();
+			for(Alumno alum : alumnos) {
+				 
+				 if(alum.getDni().equalsIgnoreCase(alumno.getDni()) || alum.getLegajo().equalsIgnoreCase(alumno.getLegajo())) {
+					 return true;
+				 }
+			}
+		 	 return false; 
+		  }
+	
 	
 }

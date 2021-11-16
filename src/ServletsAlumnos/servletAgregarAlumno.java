@@ -71,9 +71,23 @@ public class servletAgregarAlumno extends HttpServlet {
 
         NegocioAlumno negocioAlumno = new NegocioAlumno();
 
-         boolean estado = negocioAlumno.agregarAlumno(AlumnoAdd);
+         int estado = negocioAlumno.agregarAlumno(AlumnoAdd);
+        
+         switch(estado) {
          
-         Helpers.redireccionar("servletListarAlumnos", request, response);
+         case -1:  request.setAttribute("error", " ERROR: Legajo o DNI repetido");
+                   Helpers.redireccionar("ServletError", request, response);
+         break; 
+         
+         case 0: request.setAttribute("error", "ERROR: no se pudo agregar el alumno");
+                 Helpers.redireccionar("ServletError", request, response);
+         break;
+                 
+         case 1:  request.setAttribute("action", "Se agregò el alumno correctamente");
+		          Helpers.redireccionar("servletListarAlumnos", request, response); 
+         break;
+         }
+          
 	}
 
 }

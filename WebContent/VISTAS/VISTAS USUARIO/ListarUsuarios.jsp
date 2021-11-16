@@ -72,6 +72,34 @@ listaUsuarios = (ArrayList<Usuario>)request.getAttribute("listaUsuarios");
 
 %>
 
+<%
+  if(request.getAttribute("action")!=null){
+	  
+	  %>
+	  
+	  
+		  <div class="modal fade show mt-5" id="modal" style="display:block;" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" style="color:green" id="exampleModalLabel">Success!</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body" style="color:black">
+	         <%=request.getAttribute("action") %>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" id="btnCerrar" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	 
+	  <% 
+  }
+
+%>
+
 	<div class="full-width flex-center-container">
 		
 		<div class="table-container max-width-container flex-column">
@@ -86,6 +114,7 @@ listaUsuarios = (ArrayList<Usuario>)request.getAttribute("listaUsuarios");
 	                            <th>Password</th>
 	                            <th>Tipo Usuario</th>
 	                            <th> </th>
+	                            <th> </th>
 	                        </tr>
 	                   </thead>
 	                    <tbody>
@@ -96,7 +125,8 @@ listaUsuarios = (ArrayList<Usuario>)request.getAttribute("listaUsuarios");
                                 <th><%=Usuario.getUser_Name() %></th>
                                 <th><%=Usuario.getPass() %></th>
                                 <th><%=Usuario.getTipoUsuario().getNombreTipoUsuario() %></th>
-                                <th> <a href="servletEliminarUsuario?id=<%=Usuario.getIdUsuario()%>"><i class="fas fa-trash-alt"></i></a> </th>
+                                <th> <a href="servletModificarUsuario?id=<%=Usuario.getIdUsuario()%>"><i class="fas fa-edit"></i></a> </th>
+                                 <th> <a href="servletEliminarUsuario?id=<%=Usuario.getIdUsuario()%>"><i class="fas fa-trash-alt"></i></a> </th>
                             </tr>
                         <%
                         }
@@ -128,6 +158,15 @@ listaUsuarios = (ArrayList<Usuario>)request.getAttribute("listaUsuarios");
         });
     } );
     </script>
+    
+  <script>
+
+$('#btnCerrar').click(function(){ 
+   $('#modal').hide();
+});
+
+</script>
+ 
  
  
  

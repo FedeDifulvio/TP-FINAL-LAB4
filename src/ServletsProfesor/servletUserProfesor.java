@@ -76,20 +76,25 @@ public class servletUserProfesor extends HttpServlet {
 		user.setTipoUsuario(new TipoUsuario(2, "profesor"));
 		user.setEstado(true);
 		
-		boolean estado = NegUser.agregarUsuario(user); 
-		if(estado) {
-			request.setAttribute("modal", 1); 
-			Helpers.redireccionar("servletListarProfesor", request, response); 			
-		}
-		else {
-			INegocioDocente NegDoc = new NegocioDocente();
-			NegDoc.eliminarDocente(referencia);
-			request.setAttribute("error", "no se pudo agregar el usuario");
-			Helpers.redireccionar("ServletError", request, response);
-		}
-			
-	
-
+		int estado = NegUser.agregarUsuario(user); 
+		
+		switch(estado) {
+        
+        case -1:  request.setAttribute("idGenerado", user.getReferencia()); 
+                  Docente docenteUser = Helpers.encontrarDocente(user.getReferencia()); 
+                  request.setAttribute("nuevoUser", docenteUser.getNombre() + " " + docenteUser.getApellido());
+        	      request.setAttribute("errorUserName", "nombre de usuario no disponible");
+                  doGet(request, response);
+        break; 
+        
+        case 0: request.setAttribute("error", "ERROR: no se pudo agregar el usuario");
+                Helpers.redireccionar("ServletError", request, response);
+        break;
+                
+        case 1:  request.setAttribute("action", "Se agregó el usuario correctamente");
+		          Helpers.redireccionar("servletListarProfesor", request, response); 
+        break;
+        }
 	}
 
 }
