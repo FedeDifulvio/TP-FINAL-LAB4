@@ -128,7 +128,7 @@ listaCursos = (ArrayList<Curso>)request.getAttribute("listaCursos");
 <br/>
 <br/>
  <div class="row">
-           <a href="AgregarCurso.jsp" class="btn btn-success">Agregar</a>
+           <a href="servletAgregarCurso" class="btn btn-success">Agregar</a>
          </div>
 
 

@@ -10,4 +10,5 @@ public interface INegocioCurso {
 
 	public ArrayList<Curso> listarMisCursos(int idProfesor); 
 
+	public boolean agregarCursos (Curso curso);
 }

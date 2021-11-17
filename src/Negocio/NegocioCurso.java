@@ -24,5 +24,11 @@ public class NegocioCurso implements INegocioCurso{
 		cursos = daoCurso.listarMisCursos(idProfesor);
 		return cursos;
 	}
+	
+	public boolean agregarCursos (Curso curso) {
+		ICurso daoCurso = new DaoCurso();
+		boolean estado = daoCurso.AgregarCurso(curso);
+		return estado;
+	}
 
 }

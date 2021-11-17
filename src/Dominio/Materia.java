@@ -18,6 +18,9 @@ public class Materia {
 		carrera = null;
 	}
 	
+	public Materia (int id) {
+		idMateria = id;
+	}
 	
 	public Materia( int id, String nombre) {
 		

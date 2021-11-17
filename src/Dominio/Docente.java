@@ -22,6 +22,9 @@ public class Docente {
 	public Docente() {
 		super();
 	} 
+	public Docente(int id) {
+		idDocente = id;
+	}
 	
 	public Docente( int idDocente, String nombre, String apellido) {
 		this.idDocente = idDocente; 

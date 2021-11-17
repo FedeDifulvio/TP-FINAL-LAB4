@@ -32,6 +32,10 @@ public class Alumno {
 	}
 
 
+	public Alumno (int id) {
+		idAlumno = id;
+	}
+	
 	public Alumno(
 			int idAlumno, 
 			String legajo, 
