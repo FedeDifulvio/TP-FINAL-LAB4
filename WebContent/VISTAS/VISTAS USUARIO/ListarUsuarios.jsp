@@ -129,8 +129,27 @@ listaUsuarios = (ArrayList<Usuario>)request.getAttribute("listaUsuarios");
                                 <th><%=Usuario.getUser_Name() %></th>
                                 <th><%=Usuario.getPass() %></th>
                                 <th><%=Usuario.getTipoUsuario().getNombreTipoUsuario() %></th>
-                                <th> <a href="servletModificarUsuario?id=<%=Usuario.getIdUsuario()%>"><i class="fas fa-edit"></i></a> </th>
-                                 <th> <a href="servletEliminarUsuario?id=<%=Usuario.getIdUsuario()%>"><i class="fas fa-trash-alt"></i></a> </th>
+                                
+                                 <%if(Usuario.getTipoUsuario().getIdTipoUsuario() == 2)
+                                 {
+                                	 %>
+                               	  
+                               	  <th> <a href="servletModificarUsuario?id=<%=Usuario.getIdUsuario()%>"><i class="fas fa-edit"></i></a> </th>
+                                <th> <a href="servletEliminarUsuario?id=<%=Usuario.getIdUsuario()%>"><i class="fas fa-trash-alt"></i></a> </th>
+                               	  
+                               	  
+                               	  <% 
+                                 }
+                                 else{
+                                	 
+                                	 %>  
+                                	 <th></th>
+                                	 <th></th>
+                                	 <%
+                                 }
+                                 
+                                	 %>
+                                
                             </tr>
                         <%
                         }

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import ="Dominio.Curso" %>
+    <%@page import ="java.util.ArrayList" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,8 +10,8 @@
 <title>Home</title>
 </head>
 
-<link rel="stylesheet" href="../../Styles/Styles.css" />
-<link rel="stylesheet" href="../../Styles/mini-lib.css" />
+<link rel="stylesheet" href="Styles/Styles.css" />
+<link rel="stylesheet" href="Styles/mini-lib.css" />
 
 <body>
 
@@ -20,7 +22,7 @@
   <div class="container-fluid max-width-container">
   
     <a class="navbar-brand flex-center-container" href="#">
-    	<img src="../../Assets/logo.png" />
+    	<img src="Assets/logo.png" />
     </a>
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,23 +33,23 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="../HOME.jsp" id="listarProfesores" name="listarProfesores">Home</a>
+          <a class="nav-link active" aria-current="page" href="VISTAS/HOME.jsp" id="listarProfesores" name="listarProfesores">Home</a>
         </li>
       
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="../../servletListarProfesor" id="listarProfesores" name="listarProfesores">Profesores</a>
+          <a class="nav-link active" aria-current="page" href="servletListarProfesor" id="listarProfesores" name="listarProfesores">Profesores</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="../../servletListarAlumnos">Alumnos</a>
+          <a class="nav-link" href="servletListarAlumnos">Alumnos</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link"  href="CURSOS/TodosLosCursos.jsp">Cursos</a>
+          <a class="nav-link"  href="servletListarCurso">Cursos</a>
         </li>
         
          <li class="nav-item">
-          <a class="nav-link" class="nav-link"  href="../../servletListarUsarios">Usuarios</a>
+          <a class="nav-link" href="servletListarUsarios">Usuarios</a>
         </li>
         
       </ul>
@@ -63,6 +65,14 @@
 </nav>
 <!-- Fin navbar -->
 
+
+<%
+ArrayList<Curso> listaCursos = new ArrayList<Curso>();
+listaCursos = (ArrayList<Curso>)request.getAttribute("listaMisCursos"); 
+
+%>
+
+
 <div class="container">
    <div class="row justify-content-center mb-3">
             <div class="col-md-4 mt-3"  style="text-align:center; border-radius: 20px;">
@@ -73,50 +83,37 @@
         
        <div class="row">
        
-       <div class="col-md-6">
-         <div class="card" style="background: #1a2639">
-			  <div class="card-body">
-			    <h5 class="card-title">CURSO 1</h5>
-			    <p class="card-text">Materia: Laboratorio IV</p>
-			    <a href="../CALIFICACIONES/ListarCalificaciones.jsp" class="btn btn-primary">Ver calificaciones</a>
-			  </div>
-       </div>
+       <%
        
-       </div>   
-       
-          <div class="col-md-6 mb-5">
-            <div class="card" style="background:#1a2639">
-			  <div class="card-body">
-			    <h5 class="card-title">CURSO 2</h5>
-			    <p class="card-text">Materia: Legislación </p>
-			    <a href="../CALIFICACIONES/ListarCalificaciones.jsp" class="btn btn-primary">Ver calificaciones</a>
-			  </div>
-         </div>
-       
-       </div>    
-       
-          <div class="col-md-6">
-                     <div class="card" style="background: #1a2639">
-					  <div class="card-body">
-					    <h5 class="card-title"> CURSO 3</h5>
-					    <p class="card-text"> Materia: Estadística </p>
-					    <a href="../CALIFICACIONES/ListarCalificaciones.jsp" class="btn btn-primary">Ver calificaciones</a>
-					  </div>
-					</div>
-       
-       </div>
-       
-          <div class="col-md-6">
-               <div class="card" style="background: #1a2639">
+       for(Curso curso : listaCursos)
+    	   
+       {
+    	   %>
+    	    <div class="col-md-6 mt-4">
+	         <div class="card" style="background: #1a2639">
 				  <div class="card-body">
-				    <h5 class="card-title">CURSO 4</h5>
-				    <p class="card-text">Materia: Programación 2</p>
+				    <h5 class="card-title h2" style="color:orange" ><%=curso.getNombre() %></h5>
+				    <p class="card-text">Materia: <%=curso.getMateria().getNombreMateria() %></p>
+				    <p class="card-text">Semestre: <%=curso.getSemestre() %></p>
+				    <p class="card-text">Año: <%=curso.getAnio() %></p>
+				    <p class="card-text">Docente: <%=curso.getDocente().getNombre() %>  <%=curso.getDocente().getApellido() %></p>
 				    <a href="../CALIFICACIONES/ListarCalificaciones.jsp" class="btn btn-primary">Ver calificaciones</a>
 				  </div>
-				</div>
+	             </div>
+            </div> 
+            
+            <br/>
+        <br/>
+         <br/>
+    	   
+    	   <%
+    	   
+    	   
+       }
        
-       </div>
-       
+      
+       %>
+      
        </div>
         
         

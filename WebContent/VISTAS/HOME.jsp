@@ -39,11 +39,11 @@
         </li>
         
         <li class="nav-item">
-          <a class="nav-link"  href="CURSOS/TodosLosCursos.jsp">Cursos</a>
+          <a class="nav-link"  href="../servletListarCurso">Cursos</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link"  href="CURSOS/MisCursos.jsp">Mis cursos</a>
+          <a class="nav-link"  href="../servletListarMisCursos">Mis cursos</a>
         </li>
         
          <li class="nav-item">

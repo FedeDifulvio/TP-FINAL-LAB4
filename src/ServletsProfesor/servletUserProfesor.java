@@ -40,12 +40,12 @@ public class servletUserProfesor extends HttpServlet {
 		
 		 int id = Integer.parseInt(request.getAttribute("idGenerado").toString()); 
 		 
-		 Docente docenteUser = new Docente();
-			
-		 docenteUser = Helpers.encontrarDocente(id); 
-		 
-		 request.setAttribute("docenteUser", docenteUser); 
-		 
+//		 Docente docenteUser = new Docente();
+//			
+//		 docenteUser = Helpers.encontrarDocente(id); 
+//		 
+//		 request.setAttribute("docenteUser", docenteUser); 
+//		 
 		 Helpers.redireccionar("VISTAS/VISTAS PROFESOR/UserProfesor.jsp", request, response);
 		
 		
@@ -86,8 +86,11 @@ public class servletUserProfesor extends HttpServlet {
         	      request.setAttribute("errorUserName", "nombre de usuario no disponible");
                   doGet(request, response);
         break; 
-        
-        case 0: request.setAttribute("error", "ERROR: no se pudo agregar el usuario");
+                 
+        case 0:   
+        	    NegocioDocente docenteEliminar =  new NegocioDocente(); 
+        	    docenteEliminar.eliminarDocente(referencia);
+        	    request.setAttribute("error", "ERROR: no se pudo agregar el usuario");
                 Helpers.redireccionar("ServletError", request, response);
         break;
                 
