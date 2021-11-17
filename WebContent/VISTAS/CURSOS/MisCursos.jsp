@@ -97,7 +97,7 @@ listaCursos = (ArrayList<Curso>)request.getAttribute("listaMisCursos");
 				    <p class="card-text">Semestre: <%=curso.getSemestre() %></p>
 				    <p class="card-text">Año: <%=curso.getAnio() %></p>
 				    <p class="card-text">Docente: <%=curso.getDocente().getNombre() %>  <%=curso.getDocente().getApellido() %></p>
-				    <a href="../CALIFICACIONES/ListarCalificaciones.jsp" class="btn btn-primary">Ver calificaciones</a>
+				    <a href="ServletListarCalificaciones?id=<%=curso.getIdCurso()%>" class="btn btn-primary">Ver calificaciones</a>
 				  </div>
 	             </div>
             </div> 

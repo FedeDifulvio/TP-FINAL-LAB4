@@ -10,5 +10,6 @@ public interface ICalificaciones{
 	
 	public ArrayList<Calificaciones> listarCalificaciones(int IdCurso);
 	
+	public boolean EditarCalificacionesCurso (Calificaciones calificaciones);
 	
 }

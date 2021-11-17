@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">Ç
+<%@page import ="java.util.ArrayList" %>
+<%@page import ="Dominio.Calificaciones" %>
 <html>
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<link rel="stylesheet" href="../../Styles/Styles.css" />
-<link rel="stylesheet" href="../../Styles/mini-lib.css" />
+<link rel="stylesheet" href="Styles/Styles.css" />
+<link rel="stylesheet" href="Styles/mini-lib.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title> Editar Calificaciones Curso</title>
 </head>
@@ -17,7 +19,7 @@
   <div class="container-fluid max-width-container">
   
     <a class="navbar-brand flex-center-container" href="#">
-    	<img src="../../Assets/logo.png" />
+    	<img src="Assets/logo.png" />
     </a>
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,7 +62,13 @@
 </nav>
 <!-- Fin navbar -->
 
+<% 
 
+ArrayList<Calificaciones> listaCalificaciones = new ArrayList<Calificaciones>(); 
+
+listaCalificaciones = (ArrayList<Calificaciones>)request.getAttribute("listaCalificaciones");
+
+%>
 	<div class="full-width flex-center-container">
 		
 		<div class="table-container max-width-container flex-column">
@@ -68,7 +76,7 @@
 			<h1 class="table-title">Calificaciones Curso</h1>
 			<h1 class="table-title">Curso 1</h1>
 			
-			
+				<form method="Post" action="servletEditarCalificaciones">
 			<table id="table-1" class="display table table-light table-hover">
 	                    <thead class="table-dark">
 	                        <tr>
@@ -84,31 +92,35 @@
 	                   </thead>
 	                   <tbody>
 	                   
-	                   <%for(int x = 0; x<10; x++) 
+	                   <%for(Calificaciones cal : listaCalificaciones) 
 	                   {
+	                	   
+	                	   
 	                	  %>
 	                	  
 	                	  <tr>
-								<th>40.420.420</th>
-	                            <th scope="col">Alejandro</th>                        
-	                            <th>Gazzo</th>
+	                	  		<input type="Hidden" name="idCurso" value="<%= cal.getIdCurso() %>" >
+	                	  		<input type="Hidden" name="idAlumno" value="<%= cal.getAlumno().getIdAlumno() %>" >
+								<th><%= cal.getAlumno().getLegajo() %></th>
+	                            <th><%= cal.getAlumno().getNombre() %></th>                        
+	                            <th><%= cal.getAlumno().getApellido() %></th>
 	                            <th> 
-	                             <input type="text"/>
+	                             <input type="text" name="primerParcial" value="<%= cal.getParcial1() %>"/>
 	                            </th>
-	                            <th>
-	                             <input type="text"/>
+	                            <th> 
+	                             <input type="text" name="segundoParcial" value="<%= cal.getParcial2() %>"/>
 	                            </th>
-	                            <th>
-	                              <input type="text"/>
+	                            <th> 
+	                             <input type="text" name="primerRecuperatorio" value="<%= cal.getRecuperatorio1() %>"/>
 	                            </th>
-	                            <th>
-	                              <input type="text"/>
+	                            <th> 
+	                             <input type="text" name="segundoRecuperatorio" value="<%= cal.getRecuperatorio2() %>"/>
 	                            </th>
 	                            
 	                            <th>
-	                            <select name="document_type" id="document_type">
-	                               <option value="2">Regular</option> 
-                                   <option value="1">Libre</option>  
+	                            <select name="estado" id="document_type">
+	                               <option value="1">Regular</option> 
+                                   <option value="0">Libre</option>  
                                 </select>
 	                            </th>
 							</tr>
@@ -116,10 +128,8 @@
 	                	  
 	                	  
 	                	  <%
-	                	   
+	                	 
 	                   }
-	                   
-	                   
 	                   
 	                   %>
 	                   
@@ -128,7 +138,7 @@
 	                   </tbody>
 	       </table>
 		
-		<form>
+	
 			<input class="btn" type="submit" value="Guardar">
 		</form>
 		</div>

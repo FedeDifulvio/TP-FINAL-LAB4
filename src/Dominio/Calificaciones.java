@@ -93,7 +93,7 @@ public class Calificaciones {
 	
 	@Override
 	public String toString() {
-		return "Calificaciones [idCalificaciones=" + idCalificaciones + ", alumno=" + alumno.getApellido() + ", idCurso=" + idCurso
+		return "Calificaciones [idCalificaciones=" + idCalificaciones + ", alumno=" + alumno.getIdAlumno()+ ", idCurso=" + idCurso
 				+ ", parcial1=" + parcial1 + ", parcial2=" + parcial2 + ", recuperatorio1=" + recuperatorio1
 				+ ", recuperatorio2=" + recuperatorio2 + ", estadoAcademico=" + estadoAcademico + "]";
 	}

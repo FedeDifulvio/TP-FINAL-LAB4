@@ -1,13 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@page import ="java.util.ArrayList" %>
+<%@page import ="Dominio.Calificaciones" %>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<link rel="stylesheet" href="../../Styles/Styles.css" />
-<link rel="stylesheet" href="../../Styles/mini-lib.css" />
+<link rel="stylesheet" href="Styles/Styles.css" />
+<link rel="stylesheet" href="Styles/mini-lib.css" />
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
 
 
@@ -22,7 +25,7 @@
   <div class="container-fluid max-width-container">
   
     <a class="navbar-brand flex-center-container" href="#">
-    	<img src="../../Assets/logo.png" />
+    	<img src="Assets/logo.png" />
     </a>
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,7 +68,12 @@
 </nav>
 <!-- Fin navbar -->
 
+<% 
+int id = Integer.parseInt(request.getAttribute("idCurso").toString());
+ArrayList<Calificaciones> listaCalificaciones = new ArrayList<Calificaciones>(); 
 
+listaCalificaciones = (ArrayList<Calificaciones>)request.getAttribute("listaCalificaciones");
+%>
 	<div class="full-width flex-center-container">
 		
 		<div class="table-container max-width-container flex-column">
@@ -85,31 +93,35 @@
 	                            <th>Estado</th>
 	                        </tr>
 	                   </thead>
-	                   < <tbody>
+	                   <tbody>
 	                   
-	                   <%for(int x = 0; x<10; x++) 
+	                   <%for(Calificaciones cal : listaCalificaciones) 
 	                   {
+	                	   String estado = "Libre";
+	                	   if(cal.getEstadoAcademico()){
+	                		   estado = "Regular";   
+	                	   }
 	                	  %>
 	                	  
 	                	  <tr>
-								<th>40.420.420</th>
-	                            <th scope="col">Alejandro</th>                        
-	                            <th>Gazzo</th>
+								<th><%= cal.getAlumno().getLegajo() %></th>
+	                            <th><%= cal.getAlumno().getNombre() %></th>                        
+	                            <th><%= cal.getAlumno().getApellido() %></th>
 	                            <th>
-	                            7
+	                           		<%= cal.getParcial1() %>
 	                            </th>
 	                            <th>
-	                            8
+	                           		<%= cal.getParcial2() %>
 	                            </th>
 	                            <th>
-	                            -
+	                            	<%= cal.getRecuperatorio1() %>
 	                            </th>
 	                            <th>
-	                            -
+                            		<%= cal.getRecuperatorio2() %>
 	                            </th>
 	                            
 	                            <th>
-	                            Regular
+	                            	<%= estado  %>
 	                            </th>
 	                            
 							</tr>
@@ -119,19 +131,15 @@
 	                	  <%
 	                	   
 	                   }
-	                   
-	                   
+	                     
 	                   
 	                   %>
-	                   
-	                   
-							
-	                   </tbody>
+						</tbody>
 	       </table>
 		
 		<form>
 		
-		   <a href="EditarCalificacionesAlumnos.jsp" class="btn accent" type="submit">EDITAR CALIFICACIONES</a>
+		   <a href="servletEditarCalificaciones?bandera=1&idCurso=<%=id%>" class="btn accent" type="submit">EDITAR CALIFICACIONES</a>
 		
 			<!--<input class="btn accent" type="submit" value="EDITAR CALIFICACIONES">  -->
 		</form>
