@@ -5,6 +5,7 @@
 <%@page import ="Dominio.Alumno" %>
 <%@page import ="Dominio.Materia" %>
 <%@page import ="Dominio.Docente" %>
+  <%@page import ="Dominio.Usuario" %>
 <html>
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -57,10 +58,19 @@
         
       </ul>
       
-      <form class="flex-evenly-container align-items-center">
-        <h5 class="user-name">Alejandro Gazzo</h5>
-        <button class="btn accent" type="submit">Cerrar Sesión</button>
+      <%
+
+   Usuario usuario = (Usuario)session.getAttribute("usuario");
+
+%>
+      
+      <form class="flex-evenly-container align-items-center" method ="Post" action="servletCerrarSession">
+        <h5 class="user-name"><%=usuario.getUser_Name() %></h5>
+        <input class="btn accent" type="submit" value="Cerrar sesión"/>
       </form>
+      
+    </div>
+  </div>
       
     </div>
   </div>

@@ -7,21 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Dominio.Usuario;
 import Helpers.Helpers;
-import Negocio.NegocioUsuario;
 
 /**
- * Servlet implementation class servletLogin
+ * Servlet implementation class servletHome
  */
-@WebServlet("/servletLogin")
-public class servletLogin extends HttpServlet {
+@WebServlet("/servletHome")
+public class servletHome extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public servletLogin() {
+    public servletHome() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,7 +28,8 @@ public class servletLogin extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request,response);
+		// TODO Auto-generated method stub
+		Helpers.redireccionar("VISTAS/HOME.jsp", request, response);
 	}
 
 	/**
@@ -38,26 +37,8 @@ public class servletLogin extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		 String user = request.getParameter("user").toString();
-		 String pass = request.getParameter("pass").toString();
-		 
-		 NegocioUsuario negUser = new NegocioUsuario();
-		 int id = negUser.validarLogin(user, pass);
-		 
-		 if(id>0) {
-			 
-			 Usuario usuario = new Usuario(); 
-			 usuario = Helpers.encontrarUsuario(id); 
-			 request.getSession().setAttribute("usuario", usuario);
-			 Helpers.redireccionar("VISTAS/HOME.jsp", request, response);
-			 
-		 }
-		 
-		 else {
-			 
-			 Helpers.redireccionar("VISTAS/ERROR/ErrorLogin.jsp", request, response);
-		 }
 		
 	}
+		
 
 }

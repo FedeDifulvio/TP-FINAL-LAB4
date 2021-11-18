@@ -4,6 +4,7 @@
     <%@page import ="Dominio.Pais" %>
     <%@page import ="Dominio.Provincia" %>
     <%@page import ="Dominio.Localidad" %>
+      <%@page import ="Dominio.Usuario" %>
     <%@page import ="java.util.ArrayList" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -39,31 +40,24 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="VISTAS/HOME.jsp" id="listarProfesores" name="listarProfesores">Home</a>
+          <a class="nav-link active" aria-current="page" href="servletHome">Home</a>
         </li>
-      
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="servletListarProfesor" id="listarProfesores" name="listarProfesores">Profesores</a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link" href="servletListarAlumnos">Alumnos</a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link"  href="VISTAS/CURSOS/TodosLosCursos.jsp">Cursos</a>
-        </li>
-        
-         <li class="nav-item">
-          <a class="nav-link" class="nav-link"  href="servletListarUsarios">Usuarios</a>
-        </li>
-        
+       
       </ul>
       
-      <form class="flex-evenly-container align-items-center">
-        <h5 class="user-name">Alejandro Gazzo</h5>
-        <button class="btn accent" type="submit">Cerrar Sesión</button>
+       <%
+
+   Usuario usuario = (Usuario)session.getAttribute("usuario");
+
+%>
+      
+      <form class="flex-evenly-container align-items-center" method ="Post" action="servletCerrarSession">
+        <h5 class="user-name"><%=usuario.getUser_Name() %></h5>
+        <input class="btn accent" type="submit" value="Cerrar sesión"/>
       </form>
+      
+    </div>
+  </div>
       
     </div>
   </div>

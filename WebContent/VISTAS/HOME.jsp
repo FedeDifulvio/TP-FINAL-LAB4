@@ -87,6 +87,7 @@
         
       </ul>
       
+      
       <form class="flex-evenly-container align-items-center" method ="Post" action="servletCerrarSession">
         <h5 class="user-name"><%=usuario.getUser_Name() %></h5>
         <input class="btn accent" type="submit" value="Cerrar sesión"/>
@@ -117,19 +118,19 @@
 			 <div class="dashboard-card-container full-width responsive-container flex-center-container">
 		
 			<div class="dashboard-card">
-				<a class="dashboard-card-banner" href="../servletListarProfesor">Profesores</a>	
+				<a class="dashboard-card-banner" href="servletListarProfesor">Profesores</a>	
 			</div>
 			
 			<div class="dashboard-card">
-				<a class="dashboard-card-banner" href="../servletListarAlumnos">Alumnos</a>	
+				<a class="dashboard-card-banner" href="servletListarAlumnos">Alumnos</a>	
 			</div>
 			
 			<div class="dashboard-card">
-				<a class="dashboard-card-banner" href="CURSOS/TodosLosCursos.jsp">Cursos</a>	
+				<a class="dashboard-card-banner" href="servletListarCurso">Cursos</a>	
 			</div>
 			
 			<div class="dashboard-card">
-				<a class="dashboard-card-banner" href="../servletListarUsarios">Usuarios</a>	
+				<a class="dashboard-card-banner" href="servletListarUsarios">Usuarios</a>	
 			</div>
 		
 		</div>

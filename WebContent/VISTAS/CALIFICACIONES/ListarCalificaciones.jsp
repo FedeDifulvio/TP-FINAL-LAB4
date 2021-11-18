@@ -43,37 +43,8 @@
     
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      
-    
-      
-      <%if(usuario.getTipoUsuario().getIdTipoUsuario()==1){
-    	  
-    	   %>
-    	   
-    	    <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="../../servletListarProfesor" id="listarProfesores" name="listarProfesores">Profesores</a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link" href="../../servletListarAlumnos">Alumnos</a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link"  href="../CURSOS/TodosLosCursos.jsp">Cursos</a>
-        </li>
-        
-         <li class="nav-item">
-          <a class="nav-link" class="nav-link"  href="../../servletListarUsarios">Usuarios</a>
-        </li>
-    	   
-    	   
-    	   <%  
-      }
-      
-    	  %>
-      
-       
-        
+       <li class="nav-item">
+           <a class="nav-link active" aria-current="page" href="servletHome">Home</a>
       </ul>
       
       <form class="flex-evenly-container align-items-center" method ="Post" action="servletCerrarSession">
