@@ -1,30 +1,25 @@
-package servletsCurso;
+package servletLogin;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Dominio.Curso;
-import Dominio.Usuario;
 import Helpers.Helpers;
-import Negocio.NegocioCurso;
 
 /**
- * Servlet implementation class servletListarMisCursos
+ * Servlet implementation class servletCerrarSession
  */
-@WebServlet("/servletListarMisCursos")
-public class servletListarMisCursos extends HttpServlet {
+@WebServlet("/servletCerrarSession")
+public class servletCerrarSession extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public servletListarMisCursos() {
+    public servletCerrarSession() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,24 +28,16 @@ public class servletListarMisCursos extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		Usuario userDocente  =(Usuario)request.getSession().getAttribute("usuario");
-		
-		NegocioCurso negocioCurso = new NegocioCurso();
-		ArrayList<Curso> listaMisCursos = new ArrayList<Curso>(); 
-		listaMisCursos = negocioCurso.listarMisCursos(userDocente.getReferencia()); 
-		request.setAttribute("listaMisCursos", listaMisCursos);
-	    
-		Helpers.redireccionar("VISTAS/CURSOS/MisCursos.jsp", request, response);
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.getSession().removeAttribute("usuario");
+		Helpers.redireccionar("VISTAS/LOGOUT.jsp", request, response);;
 	}
 
 }

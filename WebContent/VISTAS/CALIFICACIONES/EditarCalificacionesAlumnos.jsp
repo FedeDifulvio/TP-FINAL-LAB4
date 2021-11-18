@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">Ç
 <%@page import ="java.util.ArrayList" %>
+<%@page import ="Dominio.Usuario" %>
 <%@page import ="Dominio.Calificaciones" %>
 <html>
 <head>
@@ -12,6 +13,17 @@
 <title> Editar Calificaciones Curso</title>
 </head>
 <body>
+
+
+<%
+
+   Usuario usuario = (Usuario)session.getAttribute("usuario");
+
+%>
+
+
+
+
 <main class="main-container">
 
    <nav class="navbar navbar-expand-lg navbar-dark full-width flex-center-container"> 
@@ -29,11 +41,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="../HOME.jsp" id="listarProfesores" name="listarProfesores">Home</a>
-        </li>
+    
       
-        <li class="nav-item">
+      <%if(usuario.getTipoUsuario().getIdTipoUsuario()==1){
+    	  
+    	   %>
+    	   
+    	    <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="../../servletListarProfesor" id="listarProfesores" name="listarProfesores">Profesores</a>
         </li>
         
@@ -42,18 +56,23 @@
         </li>
         
         <li class="nav-item">
-          <a class="nav-link"  href="CURSOS/TodosLosCursos.jsp">Cursos</a>
+          <a class="nav-link"  href="../CURSOS/TodosLosCursos.jsp">Cursos</a>
         </li>
         
          <li class="nav-item">
           <a class="nav-link" class="nav-link"  href="../../servletListarUsarios">Usuarios</a>
         </li>
-        
+    	   
+    	   
+    	   <%  
+      }
+      
+    	  %>
       </ul>
       
-      <form class="flex-evenly-container align-items-center">
-        <h5 class="user-name">Alejandro Gazzo</h5>
-        <button class="btn accent" type="submit">Cerrar Sesión</button>
+      <form class="flex-evenly-container align-items-center" method ="Post" action="servletCerrarSession">
+        <h5 class="user-name"><%=usuario.getUser_Name() %></h5>
+        <input class="btn accent" type="submit" value="Cerrar sesión"/>
       </form>
       
     </div>
@@ -100,25 +119,25 @@ listaCalificaciones = (ArrayList<Calificaciones>)request.getAttribute("listaCali
 	                	  
 	                	  <tr>
 	                	  		<input type="Hidden" name="idCurso" value="<%= cal.getIdCurso() %>" >
-	                	  		<input type="Hidden" name="idAlumno" value="<%= cal.getAlumno().getIdAlumno() %>" >
+	                	  		<input type="Hidden" class="idAlumno calificaciones" name="idAlumno" value="<%= cal.getAlumno().getIdAlumno() %>" >
 								<th><%= cal.getAlumno().getLegajo() %></th>
 	                            <th><%= cal.getAlumno().getNombre() %></th>                        
 	                            <th><%= cal.getAlumno().getApellido() %></th>
 	                            <th> 
-	                             <input type="text" name="primerParcial" value="<%= cal.getParcial1() %>"/>
+	                             <input type="text" class="parcial1 calificaciones" name="primerParcial" value="<%= cal.getParcial1() %>"/>
 	                            </th>
 	                            <th> 
-	                             <input type="text" name="segundoParcial" value="<%= cal.getParcial2() %>"/>
+	                             <input type="text" class="parcial2 calificaciones" name="segundoParcial" value="<%= cal.getParcial2() %>"/>
 	                            </th>
 	                            <th> 
-	                             <input type="text" name="primerRecuperatorio" value="<%= cal.getRecuperatorio1() %>"/>
+	                             <input type="text" class="recuperatorio1 calificaciones" name="primerRecuperatorio" value="<%= cal.getRecuperatorio1() %>"/>
 	                            </th>
 	                            <th> 
-	                             <input type="text" name="segundoRecuperatorio" value="<%= cal.getRecuperatorio2() %>"/>
+	                             <input type="text" class="recuperatorio2 calificaciones" name="segundoRecuperatorio" value="<%= cal.getRecuperatorio2() %>"/>
 	                            </th>
 	                            
 	                            <th>
-	                            <select name="estado" id="document_type">
+	                            <select class="estado calificaciones" name="estado" id="document_type">
 	                            <% 
 	                               if(cal.getEstadoAcademico()){
 	                            	   %>
@@ -153,8 +172,13 @@ listaCalificaciones = (ArrayList<Calificaciones>)request.getAttribute("listaCali
 							
 	                   </tbody>
 	       </table>
-		
-	
+		 	<input id="arrayidAlumno" type ="hidden" name ="arrayidAlumno">
+			<input id="arrayparcial1" type ="hidden" name ="arrayparcial1">	
+			<input id="arrayparcial2" type ="hidden" name ="arrayparcial2">
+			<input id="arrayrecuperatorio1" type ="hidden" name ="arrayrecuperatorio1">
+			<input id="arrayrecuperatorio2" type ="hidden" name ="arrayrecuperatorio2">
+			<input id="arrayestado" type ="hidden" name ="arrayestado">
+			
 			<input class="btn" type="submit" value="Guardar">
 			
 		</form>
@@ -177,5 +201,74 @@ listaCalificaciones = (ArrayList<Calificaciones>)request.getAttribute("listaCali
         
         });
     } );
+    
+    
+    
+ var arrayCalificaciones = []
+    
+    $(document).on('change', '.calificaciones', function(e){
+    	var idAlumnobuscar = e.target.closest('tr').querySelector('[name=idAlumno]')
+    	var parcial1 = e.target.closest('tr').querySelector('[name=primerParcial]')
+    	var parcial2 = e.target.closest('tr').querySelector('[name=segundoParcial]')
+    	var recuperatorio1 = e.target.closest('tr').querySelector('[name=primerRecuperatorio]')
+    	var recuperatorio2 = e.target.closest('tr').querySelector('[name=segundoRecuperatorio]')
+    	var estado = e.target.closest('tr').querySelector('[name=estado]')
+    	
+    	
+    	
+    	var repetido =  arrayCalificaciones.findIndex(x => x.idAlumno === $(idAlumnobuscar).val())
+    	if(repetido!=-1) arrayCalificaciones.splice(repetido, 1)
+    		
+    	var calificaciones = {
+    			idAlumno: $(idAlumnobuscar).val(),
+    			parcial1: $(parcial1).val(),
+    			parcial2: $(parcial2).val(),
+    			recuperatorio1:$(recuperatorio1).val(),
+    			recuperatorio2: $(recuperatorio2).val(),
+    			estado: $(estado).val()	
+    	}
+    	
+    	arrayCalificaciones.push(calificaciones)
+    	 console.log(arrayCalificaciones)   
+    	 
+    	cargarElementos(arrayCalificaciones)
+    	
+    })
+    
+    
+    function cargarElementos(arrayCalificaciones){
+	 
+	 $('#arrayidAlumno').val("")
+	 $('#arrayparcial1').val("")
+	 $('#arrayparcial2').val("")
+	 $('#arrayrecuperatorio1').val("")
+	 $('#arrayrecuperatorio2').val("")
+	 $('#arrayestado').val("")
+	 
+	 var idAlumnoArray = []
+	 var parcial1Array  = []
+	 var parcial2Array  = []
+	 var recuperatorio1Array  = []
+	 var recuperatorio2Array  = []
+	 var estadoArray  = []
+	 
+	 $.each(arrayCalificaciones, function(index, item) {
+		 idAlumnoArray.push(item.idAlumno)
+		 parcial1Array.push(item.parcial1)
+		 parcial2Array.push(item.parcial2)
+		 recuperatorio1Array.push(item.recuperatorio1)
+		 recuperatorio2Array.push(item.recuperatorio2)
+		 estadoArray.push(item.estado)
+	 });
+	 
+	 
+	 $('#arrayidAlumno').val(idAlumnoArray)
+	 $('#arrayparcial1').val(parcial1Array)
+	 $('#arrayparcial2').val(parcial2Array)
+	 $('#arrayrecuperatorio1').val(recuperatorio1Array)
+	 $('#arrayrecuperatorio2').val(recuperatorio2Array)
+	 $('#arrayestado').val(estadoArray)
+ }
+         
     </script>   
 </html>

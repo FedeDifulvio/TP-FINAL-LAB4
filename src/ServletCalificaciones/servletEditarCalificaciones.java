@@ -45,44 +45,48 @@ public class servletEditarCalificaciones extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		if(request.getParameter("bandera")!=null){
-			doGet(request, response);
-			return;
-		}
-		
-		
-		ArrayList<Calificaciones> listaCalificaciones = new ArrayList<Calificaciones>();
-		String idCurso = request.getParameter("idCurso").toString();
-		String[] idAlumno = request.getParameterValues("idAlumno");
-		String[] parcial1 = request.getParameterValues("primerParcial");
-		String[] parcial2 = request.getParameterValues("segundoParcial");
-		String[] recuperatorio1 = request.getParameterValues("primerRecuperatorio");
-		String[] recuperatorio2 = request.getParameterValues("segundoRecuperatorio");
-		String[] estado = request.getParameterValues("estado");
-		
-		
-		for (int i = 0; i< idAlumno.length; i++) {
-			Calificaciones cal = new Calificaciones();
-			cal.setIdCurso(Integer.parseInt(idCurso));
-			cal.setAlumno(new Alumno(Integer.parseInt(idAlumno[i])));
-			cal.setParcial1(Float.parseFloat(parcial1[i]));
-			cal.setParcial2(Float.parseFloat(parcial2[i]));
-			cal.setRecuperatorio1(Float.parseFloat(recuperatorio1[i]));
-			cal.setRecuperatorio2(Float.parseFloat(recuperatorio2[i]));
-			cal.setEstadoAcademico(estado[i].equals("1") ? true : false );
-			listaCalificaciones.add(cal);
-		
-			
-		}
-		
-		INegocioCalificaciones negocio = new NegocioCalificaciones();
-		boolean flag = negocio.editarCalificaciones(listaCalificaciones);
-		
-		if(flag) {
-			request.setAttribute("action", "Se modificaron las calififcaciones correctamente.");
-			Helpers.redireccionar("ServletListarCalificaciones?id="+idCurso, request, response);
-		}
-		
-		
+            doGet(request, response);
+            return;
+        }
+        
+        
+        ArrayList<Calificaciones> listaCalificaciones = new ArrayList<Calificaciones>();
+        String idCurso = request.getParameter("idCurso").toString();
+        String parcial1Array = request.getParameter("arrayparcial1").toString();
+        String parcial2Array = request.getParameter("arrayparcial2").toString();
+        String recuperatorio1Array = request.getParameter("arrayrecuperatorio1").toString();
+        String recuperatorio2Array = request.getParameter("arrayrecuperatorio2").toString();
+        String estadoArray = request.getParameter("arrayestado").toString();
+        String idAlumnoArray = request.getParameter("arrayidAlumno").toString();
+        
+        String [] parcial1 = parcial1Array.split(",");
+        String [] parcial2 = parcial2Array.split(",");
+        String [] recuperatorio1 = recuperatorio1Array.split(",");
+        String [] recuperatorio2 = recuperatorio2Array.split(",");
+        String [] estado = estadoArray.split(",");
+        String [] idAlumno = idAlumnoArray.split(",");
+
+        
+        for (int i = 0; i< idAlumno.length; i++) {
+            Calificaciones cal = new Calificaciones();
+            cal.setIdCurso(Integer.parseInt(idCurso));
+            cal.setAlumno(new Alumno(Integer.parseInt(idAlumno[i])));
+            cal.setParcial1(Float.parseFloat(parcial1[i]));
+            cal.setParcial2(Float.parseFloat(parcial2[i]));
+            cal.setRecuperatorio1(Float.parseFloat(recuperatorio1[i]));
+            cal.setRecuperatorio2(Float.parseFloat(recuperatorio2[i]));
+            cal.setEstadoAcademico(estado[i].equals("1") ? true : false );
+            listaCalificaciones.add(cal);    
+        }
+        
+        INegocioCalificaciones negocio = new NegocioCalificaciones();
+        boolean flag = negocio.editarCalificaciones(listaCalificaciones);
+        
+        if(flag) {
+            request.setAttribute("action", "Se modificaron las calififcaciones correctamente.");
+            Helpers.redireccionar("ServletListarCalificaciones?id="+idCurso, request, response);
+        }
+        
 	}
 
 }

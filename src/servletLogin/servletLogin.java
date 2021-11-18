@@ -1,30 +1,27 @@
-package servletsCurso;
+package servletLogin;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Dominio.Curso;
 import Dominio.Usuario;
 import Helpers.Helpers;
-import Negocio.NegocioCurso;
+import Negocio.NegocioUsuario;
 
 /**
- * Servlet implementation class servletListarMisCursos
+ * Servlet implementation class servletLogin
  */
-@WebServlet("/servletListarMisCursos")
-public class servletListarMisCursos extends HttpServlet {
+@WebServlet("/servletLogin")
+public class servletLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public servletListarMisCursos() {
+    public servletLogin() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,24 +30,34 @@ public class servletListarMisCursos extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		Usuario userDocente  =(Usuario)request.getSession().getAttribute("usuario");
-		
-		NegocioCurso negocioCurso = new NegocioCurso();
-		ArrayList<Curso> listaMisCursos = new ArrayList<Curso>(); 
-		listaMisCursos = negocioCurso.listarMisCursos(userDocente.getReferencia()); 
-		request.setAttribute("listaMisCursos", listaMisCursos);
-	    
-		Helpers.redireccionar("VISTAS/CURSOS/MisCursos.jsp", request, response);
+		doPost(request,response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		 String user = request.getParameter("user").toString();
+		 String pass = request.getParameter("pass").toString();
+		 
+		 NegocioUsuario negUser = new NegocioUsuario();
+		 int id = negUser.validarLogin(user, pass);
+		 
+		 if(id>0) {
+			 
+			 Usuario usuario = new Usuario(); 
+			 usuario = Helpers.encontrarUsuario(id); 
+			 request.getSession().setAttribute("usuario", usuario);
+			 Helpers.redireccionar("VISTAS/HOME.jsp", request, response);
+			 
+		 }
+		 
+		 else {
+			 
+			 System.out.println("no podes entrar vos pa");
+		 }
+		
 	}
 
 }

@@ -63,5 +63,21 @@ public class NegocioUsuario implements INegocioUsuario {
 			}
 		 	 return false; 
 		  }
+	 
+	 public int validarLogin(String user, String pass) {
+		 
+		 ArrayList<Usuario> usuarios = listarUsuarios();
+		 
+		 for(Usuario usuario : usuarios) 
+		 {
+			 if(usuario.getUser_Name().equals(user)&&usuario.getPass().equals(pass)) {
+				 return usuario.getIdUsuario() ; 
+			 }
+		 }
+		 
+		 return 0;
+	 }
+	 
+	
 
 }

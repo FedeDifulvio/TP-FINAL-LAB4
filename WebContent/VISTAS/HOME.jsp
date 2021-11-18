@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>   
+   <%@page import ="Dominio.Usuario" %>
+<%@page import ="java.util.ArrayList" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,10 +10,21 @@
 <title>Home</title>
 </head>
 
-<link rel="stylesheet" href="../Styles/Styles.css" />
-<link rel="stylesheet" href="../Styles/mini-lib.css" />
+<link rel="stylesheet" href="Styles/Styles.css" />
+<link rel="stylesheet" href="Styles/mini-lib.css" />
 
 <body>
+
+<%
+
+   Usuario usuario = (Usuario)session.getAttribute("usuario");
+
+%>
+
+
+
+
+
 
 <main class="main-container">
 
@@ -20,7 +33,7 @@
   <div class="container-fluid max-width-container">
   
     <a class="navbar-brand flex-center-container" href="#">
-    	<img src="../Assets/logo.png" />
+    	<img src="Assets/logo.png" />
     </a>
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,31 +43,53 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="../servletListarProfesor" id="listarProfesores" name="listarProfesores">Profesores</a>
+      
+      <%if(usuario.getTipoUsuario().getIdTipoUsuario()==1){
+    	  
+    	  %>
+    	  
+    	   <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="servletListarProfesor" id="listarProfesores" name="listarProfesores">Profesores</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="../servletListarAlumnos">Alumnos</a>
+          <a class="nav-link" href="servletListarAlumnos">Alumnos</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link"  href="../servletListarCurso">Cursos</a>
+          <a class="nav-link"  href="servletListarCurso">Cursos</a>
         </li>
         
-        <li class="nav-item">
-          <a class="nav-link"  href="../servletListarMisCursos">Mis cursos</a>
-        </li>
-        
+      
          <li class="nav-item">
-          <a class="nav-link" class="nav-link"  href="../servletListarUsarios">Usuarios</a>
+          <a class="nav-link" class="nav-link"  href="servletListarUsarios">Usuarios</a>
         </li>
+    	  
+    	  
+    	  <%  
+      } 
+      
+      else{
+    	  
+    	  %>
+    	  
+    	    <li class="nav-item">
+          <a class="nav-link" class="nav-link"  href="servletListarMisCursos">Mis Cursos</a>
+        </li>
+    	  
+    	  <% 
+    	  
+      }
+      
+      %>
+      
+       
         
       </ul>
       
-      <form class="flex-evenly-container align-items-center">
-        <h5 class="user-name">Alejandro Gazzo</h5>
-        <button class="btn accent" type="submit">Cerrar Sesión</button>
+      <form class="flex-evenly-container align-items-center" method ="Post" action="servletCerrarSession">
+        <h5 class="user-name"><%=usuario.getUser_Name() %></h5>
+        <input class="btn accent" type="submit" value="Cerrar sesión"/>
       </form>
       
     </div>
@@ -69,11 +104,17 @@
 	<div class="max-width-container">
 		
 		<div class="home-banner flex-center-container flex-column flex-center-container">
-			<img src="../Assets/comune.png">
+			<img src="Assets/comune.png">
 			<h1 class="mt-3">¡Bienvenido al sistema!</h1>
 		</div>
 		
-		<div class="dashboard-card-container full-width responsive-container flex-center-container">
+		
+		 <%if(usuario.getTipoUsuario().getIdTipoUsuario()==1){
+			 
+			 
+			 %>
+			 
+			 <div class="dashboard-card-container full-width responsive-container flex-center-container">
 		
 			<div class="dashboard-card">
 				<a class="dashboard-card-banner" href="../servletListarProfesor">Profesores</a>	
@@ -93,6 +134,11 @@
 		
 		</div>
 	
+			 <%
+			 
+		 }
+		%>
+		
 	</div>
 
 </div>
