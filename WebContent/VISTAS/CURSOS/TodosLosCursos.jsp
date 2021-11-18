@@ -65,6 +65,41 @@
 </nav>
 <!-- Fin navbar -->
 
+<%
+  if(request.getAttribute("action")!=null){
+	  
+	  
+	  %>
+	  
+	  
+		  <div class="modal fade show mt-5" id="modal" style="display:block;" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" style="color:green" id="exampleModalLabel">Success!</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body" style="color:black">
+	         <%=request.getAttribute("action") %>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" id="btnCerrar" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	 
+	  <% 
+	  
+	  request.removeAttribute("action");
+  }
+
+%>
+
+
+
+
+
 
 
 <%
@@ -132,6 +167,13 @@ listaCursos = (ArrayList<Curso>)request.getAttribute("listaCursos");
          </div>
 
 
-
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+ <script>
+
+$('#btnCerrar').click(function(){ 
+   $('#modal').hide();
+});
+
+</script>
 </html>

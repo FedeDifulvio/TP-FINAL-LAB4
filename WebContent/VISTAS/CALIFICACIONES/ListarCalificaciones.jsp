@@ -68,6 +68,35 @@
 </nav>
 <!-- Fin navbar -->
 
+<%
+  if(request.getAttribute("action")!=null){
+	  
+	  %>
+	  
+	  
+		  <div class="modal fade show mt-5" id="modal" style="display:block;" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" style="color:green" id="exampleModalLabel">Success!</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body" style="color:black">
+	         <%=request.getAttribute("action") %>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" id="btnCerrar" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	 
+	  <% 
+  }
+
+%>
+
+
 <% 
 int id = Integer.parseInt(request.getAttribute("idCurso").toString());
 ArrayList<Calificaciones> listaCalificaciones = new ArrayList<Calificaciones>(); 
@@ -168,7 +197,13 @@ listaCalificaciones = (ArrayList<Calificaciones>)request.getAttribute("listaCali
         });
     } );
     </script>
- 
+ <script>
+
+$('#btnCerrar').click(function(){ 
+   $('#modal').hide();
+});
+
+</script>
  
  
  

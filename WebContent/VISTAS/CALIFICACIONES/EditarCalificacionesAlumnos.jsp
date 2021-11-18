@@ -76,7 +76,7 @@ listaCalificaciones = (ArrayList<Calificaciones>)request.getAttribute("listaCali
 			<h1 class="table-title">Calificaciones Curso</h1>
 			<h1 class="table-title">Curso 1</h1>
 			
-				<form method="Post" action="servletEditarCalificaciones">
+				<form id="formu" method="Post" action="servletEditarCalificaciones">
 			<table id="table-1" class="display table table-light table-hover">
 	                    <thead class="table-dark">
 	                        <tr>
@@ -119,8 +119,24 @@ listaCalificaciones = (ArrayList<Calificaciones>)request.getAttribute("listaCali
 	                            
 	                            <th>
 	                            <select name="estado" id="document_type">
-	                               <option value="1">Regular</option> 
-                                   <option value="0">Libre</option>  
+	                            <% 
+	                               if(cal.getEstadoAcademico()){
+	                            	   %>
+	                            	      <option value="1" selected >Regular</option> 
+                                          <option value="0">Libre</option>  
+	                            	   <% 
+	                               } 
+	                               else{
+	                            	   
+	                            	   %>
+	                            	      <option value="1" selected >Regular</option> 
+                                           <option value="0" selected>Libre</option>  
+	                            	   <% 
+	                               }
+	                           
+	                            
+	                            %>
+	                               
                                 </select>
 	                            </th>
 							</tr>
@@ -140,6 +156,7 @@ listaCalificaciones = (ArrayList<Calificaciones>)request.getAttribute("listaCali
 		
 	
 			<input class="btn" type="submit" value="Guardar">
+			
 		</form>
 		</div>
 	
@@ -157,7 +174,8 @@ listaCalificaciones = (ArrayList<Calificaciones>)request.getAttribute("listaCali
             "language": {
                 search:"Buscar"
             }
+        
         });
     } );
-    </script>
+    </script>   
 </html>

@@ -80,8 +80,11 @@ public class servletAgregarCurso extends HttpServlet {
 		cursoAdd.setEstado(true);
 		ArrayList<Alumno> listaAlumnos = new ArrayList<Alumno>();
 		
-		String[] id = request.getParameterValues("seleccionado");
+		String arrayid = request.getParameter("arrayid");
+		String [] id= arrayid.split(",");
+		System.out.println(); 
 		for (int i = 0; i< id.length; i++) {
+			System.out.println(id[i]); 
 			Alumno alumno = new Alumno(Integer.parseInt(id[i]));
 			listaAlumnos.add(alumno);
 		}
@@ -90,9 +93,14 @@ public class servletAgregarCurso extends HttpServlet {
 		
 		NegocioCurso negCurso = new NegocioCurso();
 		
-		negCurso.agregarCursos(cursoAdd);
+		 boolean flag = negCurso.agregarCursos(cursoAdd);
+		if(flag) {
+			request.setAttribute("action", "Se agregó el curso correctamente");
+			Helpers.redireccionar("servletListarCurso", request, response);
+			
+		}
 		
-		Helpers.redireccionar("servletListarCurso", request, response);
+		
 		
 		
 		

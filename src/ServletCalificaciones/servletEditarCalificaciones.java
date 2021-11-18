@@ -75,8 +75,14 @@ public class servletEditarCalificaciones extends HttpServlet {
 		}
 		
 		INegocioCalificaciones negocio = new NegocioCalificaciones();
-		negocio.editarCalificaciones(listaCalificaciones);
-		Helpers.redireccionar("ServletListarCalificaciones?id="+idCurso, request, response);
+		boolean flag = negocio.editarCalificaciones(listaCalificaciones);
+		
+		if(flag) {
+			request.setAttribute("action", "Se modificaron las calififcaciones correctamente.");
+			Helpers.redireccionar("ServletListarCalificaciones?id="+idCurso, request, response);
+		}
+		
+		
 	}
 
 }

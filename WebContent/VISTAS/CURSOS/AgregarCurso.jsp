@@ -167,7 +167,10 @@ listaMaterias = (ArrayList<Materia>)request.getAttribute("listaMaterias");
                                 <th><%=alumno.getLegajo() %></th>
                                 <th><%=alumno.getNombre() %></th>
                                 <th><%=alumno.getApellido() %></th>
-                                <th> <input type ="checkbox" name ="seleccionado" value ="<%=alumno.getIdAlumno()%>"></input> </th>
+                                <th> <input class="check" type ="checkbox" name ="seleccionado" value ="<%=alumno.getIdAlumno()%>"></input>
+                                
+                                     
+                                 </th>
                             </tr>
                         <%
                         
@@ -177,11 +180,14 @@ listaMaterias = (ArrayList<Materia>)request.getAttribute("listaMaterias");
                         
 	                   </tbody>
 	       </table>
+	       
+	        <input id="arrayid" type ="hidden" name ="arrayid">
     
     </div>
     
  
-        <input  class="btn accent" type="submit" value ="Guardar"></input>
+        <input   class="btn accent" type="submit" value ="Guardar"></input>
+        
       
     
     </form>
@@ -206,5 +212,33 @@ listaMaterias = (ArrayList<Materia>)request.getAttribute("listaMaterias");
             }
         });
     } );
+    
+    var arr = []
+    
+    $(document).on('change', '.check', function(e){
+    	 var check = e.target.closest('.check')
+    	 
+    	 if($(check).is(':checked')){
+    		 arr.push($(check).val())
+    		console.log(arr)
+    	 }
+    	 else{
+    		var eliminar=  arr.findIndex(x=>x===$(check).val())
+    		arr.splice(eliminar, 1)
+    		
+    	 }
+    	 
+    	 $('#arrayid').val("")
+         $('#arrayid').val(arr)
+    })
+    
+    
+    
+    
+    
     </script>
+    
+    
+    
+    
 </html>
